@@ -16,9 +16,9 @@ CREATE TABLE users(
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(200) NOT NULL,
+    title VARCHAR(100) NOT NULL,
     content TEXT ,
-    image TEXT,
+    imageUrl TEXT,
     userId INTEGER ,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES users(id)
