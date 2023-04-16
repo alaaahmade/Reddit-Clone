@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// const signupBtn = document.getElementById('signupBtn');
 const signUpForm = document.getElementById('signupForm');
 
 signUpForm.addEventListener('submit', (e) => {
