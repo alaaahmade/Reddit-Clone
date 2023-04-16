@@ -1,7 +1,8 @@
-const {Pool} = require('pg');
+const { Pool } = require('pg');
+require('dotenv').config();
 
 const options = {
-  connectionString: process.env.DB_URl,
+  connectionString: process.env.DB_URL,
   ssl: false,
 };
 
