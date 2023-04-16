@@ -28,7 +28,8 @@ const login = (req, res, next) => {
       }
       throw new CustomError(401, 'Invalid Email or Password.');
     })
-    .then(() => {
+    .then((data) => {
+      res.cookie('token', data);
       res.status(200).sendFile(join(__dirname, '..', '..', '..', 'public', 'html', 'home.html'));
     })
     .catch((error) => {
