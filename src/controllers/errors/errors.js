@@ -6,7 +6,6 @@ const clientError = (req, res) => {
     .sendFile(path.join(__dirname, '..', '..', '..', 'public', 'html', 'error', '404.html'));
 };
 const serverError = (err, req, res) => {
-  console.log('aaa');
   if (err.status) {
     res.status(err.status).json({ message: err.message });
   } else {

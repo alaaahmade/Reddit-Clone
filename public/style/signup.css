@@ -12,9 +12,6 @@
     --std-gap: 1rem;
     --lg-gap: 2rem;
   }
-body{
-    background: rgba(0, 0, 0, 0.527);
-}
 
 
   @keyframes fade {
@@ -81,19 +78,15 @@ button.in-signup{
   h1 {
     font-weight: 500;
   }
-  .signup-wrapper {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--lg-gap);
-  }
+
   .signup-card {
+    position: absolute;
+    left: 30px;
     background: white;
     border-radius: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 32em ;
+    min-height: 100%;
     border: 1px #ccc solid;
     padding: 3rem;
   }
@@ -138,8 +131,26 @@ button.in-signup{
   input:hover {
     background: #f2f2f2;
   }
+#name{
+  display: flex;
+  gap: 10px;
+}
 
-
+.logo{
+  position: absolute;
+  width: 60vh;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow:column wrap;
+  gap: var(--lg-gap);
+}
+.logo p {
+  font-size: 20px;
+}
   @media (max-width: 600px) {
     .signup-wrapper {
       padding: 1.5rem;
