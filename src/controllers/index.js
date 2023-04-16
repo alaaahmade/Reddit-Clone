@@ -5,6 +5,7 @@ const getHome = require('./pages/home');
 const getLogin = require('./pages/login');
 const getSignup = require('./pages/signup');
 const login = require('./user/login');
+const logout = require('./user/logout');
 const signup = require('./user/signup');
 
 module.exports = {
@@ -17,4 +18,5 @@ module.exports = {
   getLogin,
   getSignup,
   getCreatePost,
+  logout,
 };
