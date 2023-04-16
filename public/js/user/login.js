@@ -2,7 +2,6 @@
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const loginBtn = document.getElementById('loginBtn');
-const loginDev = document.getElementById('loginForm');
 
 loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -11,7 +10,6 @@ loginBtn.addEventListener('click', (e) => {
     email: email.value,
     password: password.value,
   };
-  // const res = loginSchema.validate(userData);
   if (loginValidation(userData) === true) {
     fetch('/user/login', {
       method: 'POST',
@@ -21,7 +19,7 @@ loginBtn.addEventListener('click', (e) => {
       .then((data) => data.json())
       .then((data) => {
         if (data.login) {
-          window.location.href = '/html/home.html';
+          window.location.href = '/page/home';
         }
       })
       .catch(console.log);

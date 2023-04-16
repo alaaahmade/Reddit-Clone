@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-// const { join } = require('path');
 
 const { loginQuery } = require('../../database');
 const { CustomError, promiseSign } = require('../../helpers');
@@ -33,7 +32,6 @@ const login = (req, res, next) => {
     })
     .catch((error) => {
       next(new CustomError(401, error.message));
-      // res.status(401).json({ status: 401, message: error.message });
     });
 };
 

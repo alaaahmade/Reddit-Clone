@@ -1,4 +1,4 @@
 const CustomError = require('./errorClass');
-const promiseSign = require('./jwt');
+const { promiseSign, promiseVerify } = require('./jwt');
 
-module.exports = { CustomError, promiseSign };
+module.exports = { CustomError, promiseSign, promiseVerify };

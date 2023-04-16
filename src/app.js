@@ -3,6 +3,7 @@ const { join } = require('path');
 
 const parser = require('cookie-parser');
 const router = require('./routers/router');
+const isLogged = require('./middleware/islogged');
 
 require('dotenv').config();
 
