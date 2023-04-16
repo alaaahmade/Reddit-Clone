@@ -17,7 +17,7 @@
     <div class="left">
             <div class="logo">
                 <img src="/image/reddit.png" alt="" class="icon">
-                <a href="" class="tile-logo">reddit</a>
+                <a href="/page/home" class="tile-logo">reddit</a>
                 <div class="home-ico">
                     <span class="material-symbols-outlined">home</span>
                     Home
@@ -192,14 +192,14 @@
 
     <h3 class="create-title">Create a post</h3>
     <section class="add-post">
-        <form class="post-form" >
+        <form id="postForm" class="post-form" >
             <input type="text" name="title" class="post-title" placeholder="Title">
-            <input type="text" name="title" class="post-title" placeholder="Image Link">
+            <input type="text" name="imageUrl" class="post-title" placeholder="Image Link">
             <textarea name="content" id="" cols="30" rows="10" placeholder="Text (Optional)"></textarea>
             <button class="post">Post</button>
-        </form>
+        </form type="submit">
     </section>
-    
-    <script src="/js/home/home.js"></script>
+    <script src="/js/createpost/postValidation.js"></script>
+    <script src="/js/createpost/createpost.js"></script>
 </body>
 </html>

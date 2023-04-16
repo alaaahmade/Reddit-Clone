@@ -3,7 +3,11 @@ const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const setting = document.querySelector('.sitting');
 const sittingBtn = document.querySelector('.list');
 const rightSideBar = document.querySelector('.right-lists');
+const postInput = document.getElementById('postInput');
 
+postInput.addEventListener('focus', () => {
+  window.location.href = '/page/createpost';
+})
 sittingBtn.addEventListener('click', () => {
   if (setting.style.display === 'none') {
     setting.style.display = 'block';
