@@ -27,7 +27,6 @@ rightSideBarBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     const classN = btn.classList[0];
     const list = document.querySelector(`div.right-${classN}`);
-    console.log(list);
     if (list.style.display === 'none') {
       list.style.display = 'flex';
     } else {
