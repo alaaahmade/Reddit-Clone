@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <setion class="signup">
+  <section class="signup">
     <div class="logo">
       <img class="logo-signup" src="https://www.redditinc.com/assets/images/site/reddit-logo.png">
       <h2>SignUp To Reddit.</h2>
@@ -18,24 +18,24 @@
                 you are setting up a Reddit account and
                  agree to our User Agreement and Privacy Policy.</p>
     </div>
-    <form class="signup-card animated fade">
+    <form id="signupForm" class="signup-card animated fade">
       <h1 class="title">SignUp</h1>
       <div id="name">
-        <input id="firstName" type="text" placeholder="first Name">
-        <input id="lastName" type="text" placeholder="Last Name">
+        <input id="firstName" name="firstName" type="text" placeholder="first Name">
+        <input id="lastName" name="lastName" type="text" placeholder="Last Name">
       </div>
-      <input id="username" type="text" placeholder="Username">
-      <input id="email" type="email" placeholder="Email">
-      <input id="Phone" type="text" placeholder="Phone">
-      <input id="password" type="password" placeholder="Password">
-      <input id="repassword" type="text" placeholder="Confirm Password">
-      <a href="#"><button type="submit" class="in-signup">Sign up</button></a>
-      <span id="signup">you have account ? <a href="./login.html">Login</a></span>
-    </form>
-    <!-- </div> -->
-    </div>
-  </setion>
-  <script src=""></script>
+      <input id="username" name="username" type="text" placeholder="Username">
+      <input id="email" name="email" type="email" placeholder="Email">
+      <input id="Phone" name="phone" type="text" placeholder="Phone">
+      <input id="password" name="password" type="password" placeholder="Password">
+      <input id="repassword" name="confirmPassword" type="password" placeholder="Confirm Password">
+      <a href="#"><button id="signupBtn" class="in-signup">Sign up</button></a>
+      <span id="signup">you have account ? <a href="/page/login">Login</a></span>
+    </form type="submit" >
+  </section>
+
+  <script src="/js/user/signupValidation.js"></script>
+  <script src="/js/user/signup.js"></script>
 </body>
 
 </html>

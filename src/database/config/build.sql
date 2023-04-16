@@ -20,6 +20,7 @@ CREATE TABLE posts (
     content TEXT ,
     image TEXT,
     userId INTEGER ,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES users(id)
 );
 
