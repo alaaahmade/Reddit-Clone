@@ -4,6 +4,11 @@ const setting = document.querySelector('.sitting');
 const sittingBtn = document.querySelector('.list');
 const rightSideBar = document.querySelector('.right-lists');
 const loginBtn = document.querySelector('.login-btn');
+const joinBtn = document.getElementById('joinBtn');
+
+joinBtn.addEventListener('click', () => {
+  window.location.href = '/page/signup';
+});
 
 sittingBtn.addEventListener('click', () => {
   if (setting.style.display === 'none') {

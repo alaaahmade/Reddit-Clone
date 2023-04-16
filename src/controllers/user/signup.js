@@ -5,6 +5,7 @@ const { CustomError } = require('../../helpers');
 const { signupSchema } = require('../../validation');
 
 const signup = (req, res, next) => {
+  console.log(req.body);
   const {
     email,
     password,
@@ -25,6 +26,7 @@ const signup = (req, res, next) => {
   }, { abortEarly: false })
     .then((data) => {
       req.data = data;
+      console.log(data);
       return bcrypt.hash(password, 10);
     })
     .then((data) => {
