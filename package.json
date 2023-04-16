@@ -4,7 +4,9 @@
   "description": "Reddit-Clone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest",
+    "start": "cross-env NODE_ENV=production node src/",
+    "dev": "cross-env NODE_ENV=production nodemon src/"
   },
   "repository": {
     "type": "git",
@@ -14,7 +16,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.38.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",

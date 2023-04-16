@@ -47,5 +47,5 @@ window.onscroll = () => {
 };
 
 loginBtn.addEventListener('click', () => {
-  window.location.href = '../../public/html/login.html';
+  window.location.href = '/html/login.html';
 });

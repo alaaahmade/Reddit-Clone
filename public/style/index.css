@@ -335,7 +335,7 @@ section .right-side-bar{
 .right-lists{
     border: 1px solid var(--second-clr);
     position: absolute;
-    top: 200px;
+    top: 400px;
     right: 20px;
     background-color: var(--white-clr);
     width: 300px;
