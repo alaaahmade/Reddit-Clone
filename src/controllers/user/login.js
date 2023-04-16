@@ -21,7 +21,7 @@ const login = (req, res, next) => {
         req.userData = result.rows[0].id;
         return bcrypt.compare(req.password, result.rows[0].password);
       }
-      throw new CustomError(500, 'server error');
+      throw new CustomError(401, 'Invalid Email or Password.');
     }).then((isMatch) => {
       if (isMatch) {
         return promiseSign({ logged: true, id: req.userId }, process.env.SECRET_KEY);
@@ -33,7 +33,7 @@ const login = (req, res, next) => {
       res.status(200).sendFile(join(__dirname, '..', '..', '..', 'public', 'html', 'home.html'));
     })
     .catch((error) => {
-      next(new CustomError(401, 'sada'));
+      next(new CustomError(401, error.message));
       // res.status(401).json({ status: 401, message: error.message });
     });
 };

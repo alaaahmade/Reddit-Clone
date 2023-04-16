@@ -12,7 +12,7 @@ const signupQuery = ({
     text: 'INSERT INTO users (email, password, username, firstName, lastName, phone) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, username, firstName, lastName',
     values: [email, password, username, firstName, lastName, phone],
   };
-  connection.query(sql);
+  return connection.query(sql);
 };
 
 const loginQuery = (object) => {

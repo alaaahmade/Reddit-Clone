@@ -38,8 +38,7 @@ const signup = (req, res, next) => {
       });
     })
     .catch((error) => {
-      console.log(error);
-      // next(new CustomError(401, error.details[0].message));
+      next(new CustomError(401, error.message));
     });
 };
 

@@ -5,7 +5,8 @@ const clientError = (req, res) => {
     .status(404)
     .sendFile(path.join(__dirname, '..', '..', '..', 'public', 'html', 'error', '404.html'));
 };
-const serverError = (err, req, res) => {
+// eslint-disable-next-line no-unused-vars
+const serverError = (err, req, res, next) => {
   if (err.status) {
     res.status(err.status).json({ message: err.message });
   } else {
