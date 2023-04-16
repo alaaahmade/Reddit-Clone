@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { join } = require('path');
+// const { join } = require('path');
 
 const { loginQuery } = require('../../database');
 const { CustomError, promiseSign } = require('../../helpers');
@@ -29,8 +29,7 @@ const login = (req, res, next) => {
       throw new CustomError(401, 'Invalid Email or Password.');
     })
     .then((data) => {
-      res.cookie('token', data);
-      res.status(200).sendFile(join(__dirname, '..', '..', '..', 'public', 'html', 'home.html'));
+      res.cookie('token', data).status(200).json({ login: true });
     })
     .catch((error) => {
       next(new CustomError(401, error.message));

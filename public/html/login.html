@@ -12,17 +12,20 @@
     <setion class="login">
         <div class="login-wrapper">
             <img class="logo-login" src="https://www.redditinc.com/assets/images/site/reddit-logo.png">
-            <div class="login-card animated fade">
+            <div id="loginForm" class="login-card animated fade">
               <h1 class="title">Log In</h1>
               <p>Log into your account below.</p>
-              <input id="email" type="text" placeholder="Email">
-              <input id="password" type="text" placeholder="Password">
+              <input id="email" type="text" placeholder="Email" required>
+              <input id="password" type="text" placeholder="Password" required>
               <p>Forgot your <a href="#">Email</a> or <a href="#">password?</a></p>
-              <a href="#"><button class="in-login">Login</button></a>
+              <a href="#"><button id="loginBtn" class="in-login">Login</button></a>
               <span id="signup">New to Reddit? <a href="./signup.html">signup</a></span>
             </div>
           </div>
           </div>
     </setion>
+
+    <script src="/js/user/loginValid.js"></script>
+    <script src="/js/user/login.js"></script>
 </body>
 </html>
