@@ -1,6 +1,7 @@
 const { serverError, clientError } = require('./errors/errors');
 const getCreatePost = require('./pages/createpost');
 const getIndex = require('./pages/getindex');
+const getProfile = require('./pages/getprofile');
 const getHome = require('./pages/home');
 const getLogin = require('./pages/login');
 const getSignup = require('./pages/signup');
@@ -21,4 +22,5 @@ module.exports = {
   getCreatePost,
   logout,
   addPost,
+  getProfile,
 };
