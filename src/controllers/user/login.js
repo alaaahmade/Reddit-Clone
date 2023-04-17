@@ -17,13 +17,13 @@ const login = (req, res, next) => {
   })
     .then((result) => {
       if (result.rowCount > 0) {
-        req.userData = result.rows[0].id;
+        req.userId = result.rows[0].id;
         return bcrypt.compare(req.password, result.rows[0].password);
       }
       throw new CustomError(401, 'Invalid Email or Password.');
     }).then((isMatch) => {
       if (isMatch) {
-        return promiseSign({ logged: true, id: req.userId }, process.env.SECRET_KEY);
+        return promiseSign({ userId: req.userId, logged: true });
       }
       throw new CustomError(401, 'Invalid Email or Password.');
     })
