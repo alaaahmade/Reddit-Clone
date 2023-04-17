@@ -5,6 +5,7 @@ const {
   getLogin,
   getSignup,
   getCreatePost,
+  getProfile,
 } = require('../../controllers');
 const { checkAuth, isLogged } = require('../../middleware');
 
@@ -12,6 +13,8 @@ const pageRouter = express.Router();
 
 pageRouter.get('/home', checkAuth, getHome);
 pageRouter.get('/createpost', checkAuth, getCreatePost);
+
+pageRouter.get('/profile', getProfile);
 
 pageRouter.use(isLogged);
 pageRouter.get('/index', getIndex);

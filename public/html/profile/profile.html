@@ -7,9 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="/style/profile.css">
     <title>Home</title>
 </head>
 <body>
@@ -17,11 +16,7 @@
     <div class="left">
             <div class="logo">
                 <img src="/image/reddit.png" alt="" class="icon">
-                <a href="/page/home" class="tile-logo">reddit</a>
-                <div class="home-ico">
-                    <span class="material-symbols-outlined">home</span>
-                    Home
-                </div>
+                <a href="/page/index" class="tile-logo">reddit</a>
             </div>
             <div class="search">
                 <label><i class="ri-search-line"></i></i></label>
@@ -30,15 +25,11 @@
     </div>
     <div class="right">    
         <div class="feature">
-            <button><span  class="material-symbols-outlined">arrow_right_alt</span></button>
-            <button><span class="material-symbols-outlined">monetization_on</span></button>
-            <button><span class="material-symbols-outlined">chat</span></button>
-            <button><span class="material-symbols-outlined">notifications_active</span></i></button>
-            <button><span class="material-symbols-outlined">add</span></button>
-            <button><span class="material-symbols-outlined">campaign</span></i></button>
+        <button class="get-app"><i class="ri-qr-code-line"></i> Get App</button>
+        <button class="login-btn">Login</button>
     </div>
     <button class="list">
-        <span id="username"><img src="/image/reddit.png" alt="" class="user-icon">alaaahmade</span>
+        <i class="ri-shield-user-fill"></i>
         <i class="ri-arrow-down-s-fill"></i>
     </button>
     <div class="sitting">
@@ -52,43 +43,102 @@
         <button><span><i style="font-size: 22px;" class="ri-error-warning-line"></i> More</span></button>
         <button><span><i style="font-size: 22px;" class="ri-file-list-3-line"></i> Trems & Policies</span></button>
         <button><span><i class="fa fa-gavel" aria-hidden="true"></i> Advertise pn Reddit</span></button>
-        <button class="last"><span id="logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Log Out</span></button>
+        <button class="last"><span><i class="fa fa-sign-in" aria-hidden="true"></i> Login / sign Up</span></button>
     </div>
     </div>
     </header>
     <section class="side-bar">
         <div class="lists">
-            <div class="filter-side">
-                <input type="text" class="search-side" placeholder="Filter">
-            </div>
-            <div class="communities">
-                <p class="title">YOUR COMMUNITIES</p>
-                <a class="topics" href=""><span class="material-symbols-outlined">add</span> Create Community</a>
-            </div>
             <div class="feeds">
                 <p class="title">FEEDS</p>
-                <a class="topics" href="/index.html"><span class="material-symbols-outlined">home</span> Home</a>
-                <a class="topics" href="#"><span  class="material-symbols-outlined">arrow_right_alt</span> Populer</a>
-                <a class="topics" href="#"><span  class="material-symbols-outlined">manage_search</span> All</a>
+                <a class="topics" href="/index.html"><i class="ri-home-4-fill"></i> Home</a>
+                <a class="topics" href="#"><i class="ri-arrow-right-line"></i>Populer</a>
             </div>
-            <p class="title">OTHER</p>
-            <div id="drop-list" class="OTHER">
-                <a class="topics" href="#"><span  class="material-symbols-outlined">settings</span> User Settings</a>
-                <a class="topics" href="#"><span  class="material-symbols-outlined">message</span> Message</a>
-                <a class="topics" href="#"><span  class="material-symbols-outlined">add</span> Create post</a>
-                <a class="topics" href="#"><span  class="material-symbols-outlined">notifications_active</span> Notification</a>
-                <a class="topics" href=""><span class="material-symbols-outlined">monetization_on</span> Coins</a>
-                <a class="topics" href=""><span class="material-symbols-outlined">admin_panel_settings</span> Premium</a>
-                <a class="topics" href=""><span class="material-symbols-outlined">laundry</span> Avatar</a>
-
-
-                
+            <p class="title">TOPICS</p>
+            <button id="sid-bar-btn" class="Gaming titles" href="#"><span><i class="ri-gamepad-fill"></i></i> Gaming</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <div id="drop-list" class="Gaming">
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
             </div>
-            
+            <button id="sid-bar-btn" class="sports titles" href="#"><span><i class="ri-football-fill"></i>
+                 Sports</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <div id="drop-list" class="sports">
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+            </div>
+            <button id="sid-bar-btn" class="business titles" href="#"><span><i class="ri-bar-chart-fill"></i> Business</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <div id="drop-list" class="business">
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+            </div>
+            <button id="sid-bar-btn" class="crypto titles" href="#"><span><i class="ri-drag-move-line"></i> Crypto</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <div id="drop-list" class="crypto">
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+                <a href="#">*testing</a>
+            </div>
+            <button id="sid-bar-btn" class="television titles" href="#"><span><i class="ri-tv-line"></i> Television</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <div id="drop-list" class="television">
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+            </div>
+            <button id="sid-bar-btn" class="celebrity titles" href="#"><span><i class="ri-star-smile-line"></i> Celebrity</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <div id="drop-list" class="celebrity">
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+                <a href="#">testing</a>
+            </div>
+            <button class="more-topics titles" href="#"><span><i class="ri-more-fill"></i> More-Topics</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
         </div>
         <div class="join">
             <p>Create an account to follow your favorite communities and start taking part in conversations.</p>
-            <button>Join Reddit</button>
+            <button id="joinBtn">Join Reddit</button>
         </div>
     </section>
 
@@ -188,13 +238,17 @@
             </div>
         </div>
     </section>
+    <section class="profile">
+      <div>
+        <div class="block">
+          <img src="../../image/image_add_regular_icon_204373.png" alt="" class="profile-img">
+          <p class="profile-name">alaa ahmade</p>
+        </div>
+        <button>add friends</button>
+      </div>
+      <p class="profile-userName">alaaahmade66</p>
+    </section>
 
-    <div class="add-post">
-        <img src="/image/reddit.png" alt="" class="add-ico">
-        <input class="post-input" id="postInput" type="text" placeholder="Create Post">
-        <span class="material-symbols-outlined">photo_library</span>
-        <span><i class="fa fa-paperclip" aria-hidden="true"></i></span>
-    </div>
     <div class="filter">
         <div class="filters">
             <span class="blue"><i class="ri-fire-fill"></i> Hot</span>
@@ -228,14 +282,11 @@
             </select>
         </div>
     </div>
-    <section class="posts">
-        <div id="container" class="container">
-     
+    <!-- <section class="posts">
+        <div class="container" id="container">
         </div>
-    </section>
-    <script src="/js/home/Dom.js"></script>
-    <script src="/js/home/loadingData.js"></script>
-    <script src="/js/user/logout.js"></script>
-    <script src="/js/home/home.js"></script>
+    </section> -->
+
+    <script src="/js/profile/profile.js"></script>
 </body>
 </html>
