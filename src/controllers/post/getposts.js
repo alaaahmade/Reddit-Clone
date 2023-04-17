@@ -14,8 +14,8 @@ const getPosts = (req, res, next) => {
         };
         res.status(200).json(defaultPost);
       }
-    })
-    .catch(() => next(new CustomError(500, 'server error')));
+    }).catch(console.log);
+    // .catch(() => next(new CustomError(500, 'server error')));
 };
 
 module.exports = getPosts;
