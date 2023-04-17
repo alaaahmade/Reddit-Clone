@@ -624,3 +624,7 @@ section.posts{
     color: #878A8C;
     background-color: transparent;
 }
+
+.in-user p{
+    cursor: pointer;
+}

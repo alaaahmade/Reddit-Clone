@@ -8,6 +8,7 @@ const getSignup = require('./pages/signup');
 const addPost = require('./post/post');
 const login = require('./user/login');
 const logout = require('./user/logout');
+const getProfileData = require('./user/profileData');
 const signup = require('./user/signup');
 
 module.exports = {
@@ -23,4 +24,5 @@ module.exports = {
   logout,
   addPost,
   getProfile,
+  getProfileData,
 };
