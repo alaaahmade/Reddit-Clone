@@ -7,6 +7,9 @@ const addPost = (req, res, next) => {
   postSchema.validateAsync({ title }, { abortEarly: false })
     .then(() => ({ ...req.body, id: req.userId }))
     .then((data) => PostQuery(data))
+    .then(() => {
+      res.status(200).json({ error: false });
+    })
     .catch((error) => next(new CustomError(401, error.message)));
 };
 
