@@ -4,6 +4,7 @@ const getIndex = require('./pages/getindex');
 const getHome = require('./pages/home');
 const getLogin = require('./pages/login');
 const getSignup = require('./pages/signup');
+const addPost = require('./post/post');
 const login = require('./user/login');
 const logout = require('./user/logout');
 const signup = require('./user/signup');
@@ -19,4 +20,5 @@ module.exports = {
   getSignup,
   getCreatePost,
   logout,
+  addPost,
 };

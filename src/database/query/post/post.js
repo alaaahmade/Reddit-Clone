@@ -5,11 +5,11 @@ const PostQuery = (object) => {
     title,
     content,
     imageUrl,
-    userId,
+    id,
   } = object;
   const sql = {
-    text: 'insert into posts (title, content, imageUrl, userId ) VALUES ($1, $2, $3, $4)',
-    values: [title, content, imageUrl, userId],
+    text: 'insert into posts (title, content, imageUrl, userId ) VALUES ($1, $2, $3, $4) RETURNING title , content , imageUrl',
+    values: [title, content, imageUrl, id],
   };
   return connection.query(sql);
 };

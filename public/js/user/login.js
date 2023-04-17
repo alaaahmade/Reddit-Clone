@@ -18,7 +18,6 @@ loginBtn.addEventListener('click', (e) => {
     })
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
         if (data.login) {
           window.location.href = '/page/home';
         }
