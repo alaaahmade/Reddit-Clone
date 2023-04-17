@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
 fetch('/post/get', {
   method: 'GET',
-}).then(console.log)
+}).then((data) => data.json())
+  .then(console.log)
   .catch(console.log);
