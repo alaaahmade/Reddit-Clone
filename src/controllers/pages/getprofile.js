@@ -1,17 +1,13 @@
 const { join } = require('path');
-const { promiseSign, promiseVerify } = require('../../helpers');
+const { promiseSign } = require('../../helpers');
 
 const getProfile = (req, res, next) => {
   const { userId } = req.params;
   promiseSign({ page: userId })
     .then((data) => {
-      promiseVerify(data)
-        .then(console.log);
+      res.status(200).cookie('page', data)
+        .sendFile(join(__dirname, '..', '..', '..', 'public', 'html', 'profile', 'profile.html'));
     })
-    // .then((data) => {
-    //   res.status(200).cookie('page', data)
-    //     .sendFile(join(__dirname, '..', '..', '..', 'public', 'html', 'profile', 'profile.html'));
-    // })
     .catch((error) => {
       next(error);
     });
