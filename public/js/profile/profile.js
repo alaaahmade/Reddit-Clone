@@ -46,6 +46,7 @@ sideBarBtn.forEach((btn) => {
     }
   });
 });
+
 rightSideBarBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     const classN = btn.classList[0];
@@ -57,6 +58,7 @@ rightSideBarBtn.forEach((btn) => {
     }
   });
 });
+
 window.onscroll = () => {
   if (window.scrollY >= 355) {
     rightSideBar.style.position = 'fixed';
