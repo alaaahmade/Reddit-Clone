@@ -1,4 +1,7 @@
 const path = require('path');
+const { ValidationError } = require('joi');
+const { JsonWebTokenError } = require('jsonwebtoken');
+const { CustomError } = require('../../helpers');
 
 const clientError = (req, res) => {
   res
@@ -7,12 +10,31 @@ const clientError = (req, res) => {
 };
 // eslint-disable-next-line no-unused-vars
 const serverError = (err, req, res, next) => {
-  if (err.status) {
-    res.status(err.status).json({ message: err.message });
-  } else {
-    res
-      .status(500)
-      .sendFile(path.join(__dirname, '..', '..', '..', 'public', 'html', 'error', '500.html'));
+  if (err instanceof ValidationError) {
+    return res.status(400).json({
+      error: true,
+      data: {
+        message: err.details,
+      },
+    });
   }
+  if (err instanceof JsonWebTokenError) {
+    return res.status(401).json({
+      error: true,
+      data: {
+        message: 'UnAuthorize',
+      },
+    });
+  }
+  if (err instanceof CustomError) {
+    return res.status(400).json({
+      error: true,
+      data: {
+        message: err.message,
+      },
+    });
+  }
+
+  res.status(500).sendFile(path.join(__dirname, '..', '..', '..', 'public', 'html', 'error', '500.html'));
 };
 module.exports = { clientError, serverError };

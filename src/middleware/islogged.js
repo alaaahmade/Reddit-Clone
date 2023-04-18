@@ -1,17 +1,18 @@
 const { promiseVerify } = require('../helpers');
 
+// eslint-disable-next-line consistent-return
 const isLogged = (req, res, next) => {
-  if (req.cookies.token) {
-    promiseVerify(req.cookies.token)
-      .then(() => {
-        res.status(200).redirect('/page/home');
-      })
-      .catch(() => {
-        res.clearCookie('token');
-        next();
-      });
-  } else {
-    next();
+  const { token } = req.cookies;
+
+  if (!token) {
+    return next();
   }
+  promiseVerify(token)
+    .then(() => {
+      res.redirect('/');
+    }).catch(() => {
+      res.clearCookie('token');
+      next();
+    });
 };
 module.exports = isLogged;
