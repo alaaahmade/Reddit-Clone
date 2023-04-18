@@ -6,6 +6,12 @@ const rightSideBar = document.querySelector('.right-lists');
 const loginBtn = document.querySelector('.login-btn');
 const joinBtn = document.getElementById('joinBtn');
 
+fetch('/user/profile', {
+  method: 'GET',
+}).then((data) => data.json)
+  .then(console.log)
+  .catch(console.log);
+
 joinBtn.addEventListener('click', () => {
   window.location.href = '/page/signup';
 });

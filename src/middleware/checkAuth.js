@@ -1,15 +1,17 @@
 const { promiseVerify, CustomError } = require('../helpers');
 
 const checkAuth = (req, res, next) => {
-  if (req.cookies.token) {
-    promiseVerify(req.cookies.token)
-      .then((data) => {
-        req.userId = data.userId;
-        next();
-      })
-      .catch((error) => next(new CustomError(401, error.message)));
-  } else {
-    res.status(401).redirect('/page/index');
+  const { token } = req.cookies;
+  if (!token) {
+    throw new CustomError(400, 'UnAuthorize');
   }
+
+  promiseVerify(token)
+    .then((data) => {
+      req.userId = data.userId;
+      next();
+    }).catch((error) => {
+      next(error);
+    });
 };
 module.exports = checkAuth;

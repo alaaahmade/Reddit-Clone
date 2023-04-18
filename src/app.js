@@ -3,7 +3,7 @@ const { join } = require('path');
 
 const parser = require('cookie-parser');
 const router = require('./routers/router');
-const isLogged = require('./middleware/islogged');
+const indexRouter = require('./routers/index/indexRouter');
 
 require('dotenv').config();
 
@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(parser());
 app.disable('x-powered-by');
+app.use(indexRouter);
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(router);
 
