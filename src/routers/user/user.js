@@ -9,7 +9,6 @@ const {
 const { checkAuth, isLogged } = require('../../middleware');
 
 const userRouter = express.Router();
-// userRouter.get('/isNew', isNew);
 
 userRouter.get('/profile', getProfileData);
 userRouter.get('/logout', checkAuth, logout);

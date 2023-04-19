@@ -38,13 +38,16 @@ VALUES ('fake Post', 'fake post fake post fake post fake post', 'https://upload.
 insert into posts (title, content, imageUrl, userId ) 
 VALUES ('fake Post', 'fake post fake post fake post fake post', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Gazeta_Express_Logo.png', 6);
 
-INSERT INTO votes (userId, postId, value) VALUES (1, 1, '1');
+INSERT INTO votes (userId, postId, vote) VALUES (1, 1, 'up');
 
-INSERT INTO votes (userId, postId, value) VALUES (2, 2, '-1');
+INSERT INTO votes (userId, postId, vote) VALUES (2, 2, 'up');
 
-INSERT INTO votes (userId, postId, value) VALUES (3, 3, '-1');
+INSERT INTO votes (userId, postId, vote) VALUES (3, 3, 'up');
 
-INSERT INTO votes (userId, postId, value) VALUES (5, 4, '1');
+INSERT INTO votes (userId, postId, vote) VALUES (1, 4, 'down');
+INSERT INTO votes (userId, postId, vote) VALUES (2, 4, 'down');
+INSERT INTO votes (userId, postId, vote) VALUES (3, 4, 'up');
+INSERT INTO votes (userId, postId, vote) VALUES (4, 4, 'up');
 
 
 COMMIT;

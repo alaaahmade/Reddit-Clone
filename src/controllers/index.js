@@ -12,6 +12,7 @@ const getProfileData = require('./user/profileData');
 const signup = require('./user/signup');
 const { addVote } = require('./votes/addVote');
 const decreaseVote = require('./votes/decreaseVote');
+const getScore = require('./votes/getScore');
 
 module.exports = {
   addVote,
@@ -29,4 +30,5 @@ module.exports = {
   addPost,
   getProfile,
   getProfileData,
+  getScore,
 };
