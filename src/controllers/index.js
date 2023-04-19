@@ -10,8 +10,12 @@ const login = require('./user/login');
 const logout = require('./user/logout');
 const getProfileData = require('./user/profileData');
 const signup = require('./user/signup');
+const { addVote } = require('./votes/addVote');
+const decreaseVote = require('./votes/decreaseVote');
 
 module.exports = {
+  addVote,
+  decreaseVote,
   login,
   signup,
   serverError,

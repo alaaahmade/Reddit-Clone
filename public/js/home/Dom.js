@@ -15,6 +15,7 @@ const createPost = (Data) => {
     const score = createElement('div', 'score');
     post.appendChild(score);
     const scoreUP = createElement('button', 'score-up');
+    scoreUP.id = element.id;
     const upIcon = document.createElement('i');
     upIcon.className = 'fa-solid fa-arrow-up';
     scoreUP.appendChild(upIcon);
@@ -23,6 +24,7 @@ const createPost = (Data) => {
     scoreNum.textContent = 0;
     score.appendChild(scoreNum);
     const scoreDown = createElement('button', 'score-down');
+    scoreDown.id = element.id;
     const downIco = document.createElement('i');
     downIco.className = 'fa-solid fa-arrow-down';
     scoreDown.appendChild(downIco);

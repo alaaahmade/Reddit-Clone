@@ -4,9 +4,10 @@ const { userRouter } = require('./user');
 const { clientError, serverError } = require('../controllers');
 const pageRouter = require('./pages/page');
 const postRouter = require('./post/post');
+const voteRouter = require('./votes');
 
 const router = express.Router();
-
+router.use('/vote', voteRouter);
 router.use('/user', userRouter);
 router.use('/page', pageRouter);
 router.use('/post', postRouter);
