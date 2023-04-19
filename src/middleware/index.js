@@ -1,3 +1,4 @@
+// const checkAuth = require('./checkAuth');
 const checkAuth = require('./checkAuth');
 const isLogged = require('./islogged');
 
