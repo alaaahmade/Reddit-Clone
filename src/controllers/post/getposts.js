@@ -1,7 +1,6 @@
 const { getPostsQ } = require('../../database');
-const { CustomError } = require('../../helpers');
 
-const getPosts = (req, res, next) => {
+const getPosts = (req, res) => {
   getPostsQ()
     .then((data) => {
       if (data.rowCount > 0) {
@@ -15,7 +14,6 @@ const getPosts = (req, res, next) => {
         res.status(200).json(defaultPost);
       }
     }).catch(console.log);
-    // .catch(() => next(new CustomError(500, 'server error')));
 };
 
 module.exports = getPosts;

@@ -21,6 +21,7 @@ const createPost = (Data) => {
     scoreUP.appendChild(upIcon);
     score.appendChild(scoreUP);
     const scoreNum = createElement('span', 'score-num');
+    scoreNum.id = element.id;
     scoreNum.textContent = 0;
     score.appendChild(scoreNum);
     const scoreDown = createElement('button', 'score-down');

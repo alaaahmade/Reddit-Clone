@@ -1,18 +1,18 @@
 const { connection } = require('../../config');
 
-const add = ({ userId, postId, value }) => {
+const add = ({ userId, postId, vote }) => {
   const sql = {
-    text: ' INSERT INTO votes (userId, postId, value) VALUES ($1, $2, $3)',
-    values: [userId, postId, value],
+    text: 'INSERT INTO votes (userId, postId, vote) VALUES ($1, $2, $3)',
+    values: [userId, postId, vote],
   };
 
   return connection.query(sql);
 };
 
-const update = ({ userId, postId, value }) => {
+const update = ({ userId, postId, vote }) => {
   const sql = {
-    text: 'UPDATE votes SET value=$3 WHERE userId=$1 AND postId=$2;',
-    values: [userId, postId, value],
+    text: 'UPDATE votes SET vote=$3 WHERE userId=$1 AND postId=$2;',
+    values: [userId, postId, vote],
   };
   return connection.query(sql);
 };
@@ -27,7 +27,7 @@ const remove = ({ userId, postId }) => {
 
 const checkVote = ({ userId, postId }) => {
   const sql = {
-    text: ' SELECT * FROM VOTES where userId=$1 and postId=$2;',
+    text: 'SELECT * FROM votes where userId=$1 and postId=$2;',
     values: [userId, postId],
   };
 
@@ -36,7 +36,7 @@ const checkVote = ({ userId, postId }) => {
 
 const count = ({ postId }) => {
   const sql = {
-    text: ' SELECT value FROM VOTES where postId=$1;',
+    text: 'SELECT * FROM VOTES where postId=$1;',
     values: [postId],
   };
   return connection.query(sql);

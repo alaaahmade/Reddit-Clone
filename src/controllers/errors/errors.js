@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
 const path = require('path');
 const { ValidationError } = require('joi');
 const { JsonWebTokenError } = require('jsonwebtoken');
@@ -8,7 +10,6 @@ const clientError = (req, res) => {
     .status(404)
     .sendFile(path.join(__dirname, '..', '..', '..', 'public', 'html', 'error', '404.html'));
 };
-// eslint-disable-next-line no-unused-vars
 const serverError = (err, req, res, next) => {
   if (err instanceof ValidationError) {
     return res.status(400).json({

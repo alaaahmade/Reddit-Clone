@@ -2,30 +2,27 @@ const {
   checkVote,
   add,
   count,
+  update,
   remove,
 } = require('../../database');
 
 const addVote = (req, res, next) => {
-  const { userId } = req;
   const { postId } = req.params;
-  checkVote({ userId, postId })
-    // eslint-disable-next-line consistent-return
+  const { userId } = req;
+
+  checkVote({ userId, postId, vote: 'up' })
     .then((data) => {
-      if (!data.rowCount) {
-        return add({ userId, postId, value: '1' });
+      if (data.rowCount) {
+        if (data.rows[0] === 'down') {
+          return update({ userId, postId, vote: 'up' });
+        }
+        return remove({ userId, postId, vote: 'up' });
       }
-      return remove({ userId, postId });
+      return add({ userId, postId, vote: 'up' });
     }).then(() => count({ postId }))
     .then((data) => {
-      const array = data.rows;
-      const newArray = [];
-      array.forEach((e) => {
-        newArray.push(+e.value);
-      });
-      const voteNum = newArray.reduce((pre, cur) => pre + cur, 0);
       res.status(200).json({
-        error: false,
-        count: voteNum,
+        score: data.rows.length,
       });
     })
     .catch((err) => next(err));
