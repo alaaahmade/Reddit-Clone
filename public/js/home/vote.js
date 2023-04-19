@@ -17,7 +17,6 @@ setTimeout(() => {
     const score = btn.nextElementSibling;
     getVote(btn.id)
       .then((data) => {
-        console.log(data.score);
         score.textContent = data.score;
         if (data.class === '#FF4500') {
           // eslint-disable-next-line no-param-reassign
@@ -34,7 +33,6 @@ setTimeout(() => {
     score.textContent = '';
     addVote(btn.id)
       .then((data) => {
-        console.log(data.score);
         if (data.class) {
           // eslint-disable-next-line no-param-reassign
           btn.style.color = data.class;
@@ -49,7 +47,6 @@ setTimeout(() => {
     score.textContent = '';
     decreaseVote(btn.id)
       .then((data) => {
-        console.log(data);
         score.textContent = data.score;
         if (data.data === 'add') {
           btn.classList.remove('black');

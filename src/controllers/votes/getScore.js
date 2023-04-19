@@ -1,6 +1,7 @@
 const { count, checkVote } = require('../../database');
 const { promiseVerify } = require('../../helpers');
 
+// eslint-disable-next-line consistent-return
 const getScore = (req, res, next) => {
   const { postId } = req.params;
   const { token } = req.cookies;
@@ -21,6 +22,7 @@ const getScore = (req, res, next) => {
         req.class = 'black';
       }
     })
+
     .then(() => count({ postId }))
     .then((data) => {
       const up = data.rows.filter((e) => e.vote === 'up').length;
