@@ -630,7 +630,7 @@ section.posts{
 }
 
 .comments-container{
-    /* display: none; */
+    display: none;
     padding: 15px;
     transition: 0.2s;
 }
