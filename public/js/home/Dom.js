@@ -64,6 +64,7 @@ const createPost = (Data) => {
     const buttons = createElement('div', 'buttons');
     postInfo.appendChild(buttons);
     const comments = createElement('button', 'comments');
+    comments.id = 'commentsBtn';
     const commentIcon = createElement('i', 'ri-chat-4-line');
     comments.appendChild(commentIcon);
     const comNode = document.createTextNode('Comments');
@@ -88,92 +89,82 @@ const createPost = (Data) => {
     postsContainer.appendChild(post);
 
     // --------------------------------comments
-    const commentsContainer = createElement('div', 'comments-container');
-    const addComment = createElement('div', 'add-comment');
-    commentsContainer.appendChild(addComment);
-    const CommentTitle = createElement('h4', 'comment-title');
-    CommentTitle.textContent = 'Comment As';
-    addComment.appendChild(CommentTitle);
-    const createComment = createElement('div', 'create-comment');
-    const Comment = createElement('input', 'Comment');
-    const commentBtn = createElement('button', 'comment-btn');
-    commentBtn.textContent = 'Comment';
-    createComment.appendChild(Comment);
-    createComment.appendChild(commentBtn);
-    addComment.appendChild(createComment);
 
-    // ========================
-    const commentDiv = createElement('div', 'comment-div');
-    commentsContainer.appendChild(commentDiv);
-    const userComment = createElement('div', 'user-comment');
-    commentDiv.appendChild(userComment);
-    const commentImg = createElement('img', 'comment');
-    commentImg.src = '/image/reddit.png';
-    const usernameComment = createElement('p', 'username-comment');
-    usernameComment.textContent = 'Alaa Ahmad';
-    const commentDate = createElement('p', 'comment-date');
-    userComment.appendChild(commentImg);
-    userComment.appendChild(usernameComment);
-    userComment.appendChild(commentDate);
-    const commentContent = createElement('div', 'comment-content');
-    commentDiv.appendChild(commentContent);
-    const commentText = createElement('p', 'comment-text');
-    commentContent.appendChild(commentText);
-    commentText.textContent = 'Text Text Text Text Text Text Text Text ';
-    const commentButtons = createElement('div', 'comment-buttons');
-    commentDiv.appendChild(commentButtons);
-    const commentVote = createElement('div', 'comment-vote');
-    commentButtons.appendChild(commentVote);
-    const commentUp = createElement('button', 'comment-up');
-    const commentUpIcon = document.createElement('i');
-    commentUpIcon.className = 'fa-solid fa-arrow-up';
-    commentUp.appendChild(commentUpIcon);
-    commentVote.appendChild(commentUp);
-    const commentNum = createElement('span', 'comment-num');
-    commentNum.textContent = 0;
-    commentVote.appendChild(commentNum);
-    const commentDown = createElement('button', 'comment-down');
-    const commentDownIcon = document.createElement('i');
-    commentDownIcon.className = 'fa-solid fa-arrow-down';
-    commentDown.appendChild(commentDownIcon);
-    commentVote.appendChild(commentDown);
-    const reply = createElement('button', 'reply');
-    const replyIcon = createElement('i', 'ri-chat-smile-line');
-    reply.appendChild(replyIcon);
-    commentButtons.appendChild(reply);
-    const share = createElement('button', 'share');
-    commentButtons.appendChild(share);
-    const commentMore = createElement('button', 'comment-more');
-    commentMore.textContent = '...';
-    commentButtons.appendChild(commentMore);
-    postInfo.appendChild(commentsContainer);
+    const commentsContainer = createElement('div', 'comments-container');
+    // eslint-disable-next-line consistent-return
+    buttons.addEventListener('click', () => {
+      if (commentsContainer.style.display === 'block') {
+        // eslint-disable-next-line no-return-assign
+        return commentsContainer.style.display = 'none';
+      }
+      commentsContainer.style.display = 'block';
+
+      const addComment = createElement('div', 'add-comment');
+      commentsContainer.appendChild(addComment);
+      const CommentTitle = createElement('h4', 'comment-title');
+      CommentTitle.textContent = 'Comment As';
+      addComment.appendChild(CommentTitle);
+      const createComment = createElement('div', 'create-comment');
+      const Comment = createElement('input', 'Comment');
+      const commentBtn = createElement('button', 'comment-btn');
+      commentBtn.textContent = 'Comment';
+      createComment.appendChild(Comment);
+      createComment.appendChild(commentBtn);
+      addComment.appendChild(createComment);
+
+      // ========================
+
+      fetch(`/post/comment/${element.id}`)
+        .then((data) => data.json())
+        .then((data) => {
+          data.forEach((comment) => {
+            const commentDiv = createElement('div', 'comment-div');
+            commentsContainer.appendChild(commentDiv);
+            const userComment = createElement('div', 'user-comment');
+            commentDiv.appendChild(userComment);
+            const commentImg = createElement('img', 'comment');
+            commentImg.src = '/image/reddit.png';
+            const usernameComment = createElement('p', 'username-comment');
+            usernameComment.textContent = comment.username;
+            const commentDate = createElement('p', 'comment-date');
+            commentDate.textContent = comment.date;
+            userComment.appendChild(commentImg);
+            userComment.appendChild(usernameComment);
+            userComment.appendChild(commentDate);
+            const commentContent = createElement('div', 'comment-content');
+            commentDiv.appendChild(commentContent);
+            const commentText = createElement('p', 'comment-text');
+            commentContent.appendChild(commentText);
+            commentText.textContent = comment.content;
+            const commentButtons = createElement('div', 'comment-buttons');
+            commentDiv.appendChild(commentButtons);
+            const commentVote = createElement('div', 'comment-vote');
+            commentButtons.appendChild(commentVote);
+            const commentUp = createElement('button', 'comment-up');
+            const commentUpIcon = document.createElement('i');
+            commentUpIcon.className = 'fa-solid fa-arrow-up';
+            commentUp.appendChild(commentUpIcon);
+            commentVote.appendChild(commentUp);
+            const commentNum = createElement('span', 'comment-num');
+            commentNum.textContent = 0;
+            commentVote.appendChild(commentNum);
+            const commentDown = createElement('button', 'comment-down');
+            const commentDownIcon = document.createElement('i');
+            commentDownIcon.className = 'fa-solid fa-arrow-down';
+            commentDown.appendChild(commentDownIcon);
+            commentVote.appendChild(commentDown);
+            const reply = createElement('button', 'reply');
+            const replyIcon = createElement('i', 'ri-chat-smile-line');
+            reply.appendChild(replyIcon);
+            commentButtons.appendChild(reply);
+            const share = createElement('button', 'share');
+            commentButtons.appendChild(share);
+            const commentMore = createElement('button', 'comment-more');
+            commentMore.textContent = '...';
+            commentButtons.appendChild(commentMore);
+            postInfo.appendChild(commentsContainer);
+          });
+        }).catch(console.log);
+    });
   });
 };
-
-// <!-- <div class="comments-container">
-// <div class="add-comment">
-//     <h4>Comment As <a href="#">Alaa-Ahmade</a></h4>
-//     <div class="create-comment">
-//         <input type="text" class="comment-input" placeholder="Comment">
-//         <button class="comment-btn">Comment</button>
-//     </div>
-// </div>
-
-// <div class="comment-div">
-//     <div class="user-comment"><img class="comment" src="/image/reddit.png">
-//         <p class="username-comment">Alaa Ahmad</p>
-//         <p class="comment-date"></p>
-//     </div>
-//     <div class="comment-content">
-//         <p class="comment-text">Text Text Text Text Text Text Text Text </p>
-//     </div>
-//     <div class="comment-buttons">
-//         <div class="comment-vote"><button class="comment-up"><i
-//                     class="fa-solid fa-arrow-up"></i></button><span
-//                 class="comment-num">0</span><button class="comment-down"><i
-//                     class="fa-solid fa-arrow-down"></i></button></div><button class="reply"><i
-//                 class="ri-chat-smile-line"></i></button><button class="share"></button><button
-//             class="comment-more">...</button>
-//     </div>
-// </div>
-// </div> --

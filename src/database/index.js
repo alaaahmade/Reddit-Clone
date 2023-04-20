@@ -1,3 +1,4 @@
+const { getComments, addCommentQ } = require('./query/comments/comment');
 const getPostsQ = require('./query/post/getposts');
 const { PostQuery } = require('./query/post/post');
 const ProfileData = require('./query/user/ProfileData');
@@ -21,4 +22,6 @@ module.exports = {
   checkVote,
   count,
   update,
+  getComments,
+  addCommentQ,
 };
