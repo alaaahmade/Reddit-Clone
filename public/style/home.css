@@ -712,3 +712,48 @@ section.posts{
     background-color: transparent;
     transition: 0.2s;
 }
+.add-comment{
+    margin-left: 60px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.add-comment a {
+    text-decoration: none;
+    color: var(--second-clr);
+}
+.add-comment h4{
+    font-size: 14px;
+}
+.create-comment{
+    position: relative;
+    width: 80%;
+}
+.create-comment input{
+    width: 100%;
+    height: 35px;
+    border-radius: 7px;
+    border: 2px solid var(--second-clr);
+    outline: 0;
+    padding: 15px;
+    background-color: var(--second-clr);
+}
+.create-comment button{
+    position: absolute;
+    padding: 9px 10px;
+    outline: 0;
+    border: 0;
+    border-radius: 7px;
+    color: white;
+    background-color: var(--primary-clr);
+    transition: 0.2s;
+
+}
+.create-comment button:hover{
+    color: var(--primary-clr);
+    background-color: var(--second-clr);
+    border: 1px solid var(--primary-clr);
+}
