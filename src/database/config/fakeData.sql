@@ -4,7 +4,7 @@ INSERT INTO users (email, password, username, firstName, lastName, phone)
 VALUES ('alaaahmade67@gmail.com', '123456789a','ahmadalaa' ,'ahmad', 'alaa', '1234567890');
 
 INSERT INTO users (email, password, username, firstName, lastName, phone) 
-VALUES ('alaaahmade66@gmail.com', '123456789a','alaaahmad' ,'alaa', 'ahmad', '1234567890');
+VALUES ('alaaahmade655@gmail.com', '123456789a','alaaahmad' ,'alaa', 'ahmad', '1234567890');
 
 INSERT INTO users (email, password, username, firstName, lastName, phone) 
 VALUES ('alaaahmade68@gmail.com', '123456789a','aliali' ,'ali', 'ali', '1234567890');
@@ -48,6 +48,17 @@ INSERT INTO votes (userId, postId, vote) VALUES (1, 4, 'down');
 INSERT INTO votes (userId, postId, vote) VALUES (2, 4, 'down');
 INSERT INTO votes (userId, postId, vote) VALUES (3, 4, 'up');
 INSERT INTO votes (userId, postId, vote) VALUES (4, 4, 'up');
+
+
+InSERT INTO comments (userId, postId, content) VALUES( 1, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 2, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 3, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 4, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 1, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 6, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 1, 6, 'FAKE');
+InSERT INTO comments (userId, postId, content) VALUES( 6, 6, 'FAKE');
+
 
 
 COMMIT;

@@ -1,3 +1,5 @@
+const addComment = require('./comment/addComment');
+const getComment = require('./comment/getComent');
 const { serverError, clientError } = require('./errors/errors');
 const getCreatePost = require('./pages/createpost');
 const getIndex = require('./pages/getindex');
@@ -33,4 +35,6 @@ module.exports = {
   getProfileData,
   getScore,
   getSIndexScore,
+  getComment,
+  addComment,
 };

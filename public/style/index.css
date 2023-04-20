@@ -651,7 +651,7 @@ section.posts{
     border: 2px solid var(--second-clr);
     outline: 0;
     padding: 15px;
-    background-color: var(--second-clr);
+    background-color: #ccc;
 }
 .create-comment button{
     position: absolute;
