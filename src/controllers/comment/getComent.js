@@ -5,7 +5,8 @@ const getComment = (req, res, next) => {
   getComments({ postId })
     .then((data) => {
       res.status(200).json(data.rows);
-    }).catch((err) => next(err));
+    })
+    .catch((err) => next(err));
 };
 
 module.exports = getComment;

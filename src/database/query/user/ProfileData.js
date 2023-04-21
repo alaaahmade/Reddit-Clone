@@ -8,4 +8,12 @@ const ProfileData = (id) => {
   return connection.query(sql);
 };
 
-module.exports = ProfileData;
+const usernameQ = (id) => {
+  const sql = {
+    text: 'SELECT username, id FROM users WHERE id=$1 ',
+    values: [id],
+  };
+  return connection.query(sql);
+};
+
+module.exports = { ProfileData, usernameQ };

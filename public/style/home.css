@@ -661,6 +661,11 @@ section.posts{
     font-size: 15px;
     word-spacing: -5px;
     margin: 10px 0;
+    height: fit-content;
+    padding: 20px;
+    width: 600px;
+    word-wrap: break-word;
+    overflow-wrap: break-word
 }
 .comment-buttons{
     display: flex;
@@ -756,4 +761,10 @@ section.posts{
     color: var(--primary-clr);
     background-color: var(--second-clr);
     border: 1px solid var(--primary-clr);
+}
+
+.user-span {
+     font-size: 14px;
+     color: #a5a5a5;
+     font-weight: 200;
 }

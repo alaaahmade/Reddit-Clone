@@ -3,6 +3,7 @@ const getVote = (id) => fetch(`/vote/get/index/${id}`)
 
 setTimeout(() => {
   const upBtn = document.querySelectorAll('button.score-up');
+  const DownBtn = document.querySelectorAll('button.score-down');
   upBtn.forEach((btn) => {
     const score = btn.nextElementSibling;
     getVote(btn.id)
@@ -17,5 +18,13 @@ setTimeout(() => {
           score.nextElementSibling.style.color = data.class;
         }
       });
+  });
+  upBtn.forEach((btn) => {
+    // eslint-disable-next-line no-return-assign
+    btn.addEventListener('click', () => window.location.href = '/page/login');
+  });
+  DownBtn.forEach((btn) => {
+    // eslint-disable-next-line no-return-assign
+    btn.addEventListener('click', () => window.location.href = '/page/login');
   });
 }, 200);
