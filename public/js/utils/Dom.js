@@ -1,14 +1,15 @@
-/* eslint-disable no-unused-vars */
-const postsContainer = document.getElementById('container');
-
 const createElement = (tag, className) => {
   const element = document.createElement(tag);
   element.className = className;
   return element;
 };
 
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-unused-vars
 const createPost = (Data) => {
+  const postsContainer = document.getElementById('container');
   postsContainer.textContent = '';
+  Data.reverse();
   Data.forEach((element) => {
     const post = createElement('div', 'post');
 
@@ -31,6 +32,7 @@ const createPost = (Data) => {
     scoreDown.appendChild(downIco);
     score.appendChild(scoreDown);
     const postInfo = createElement('div', 'post-info');
+    postInfo.id = `postInfo${element.id}`;
     post.appendChild(postInfo);
     const userInfo = createElement('div', 'user-info');
     postInfo.appendChild(userInfo);
@@ -88,12 +90,14 @@ const createPost = (Data) => {
     buttons.appendChild(more);
     postsContainer.appendChild(post);
 
-    // --------------------------------comments
+    // --------------------------------Create comments
 
     const commentsContainer = createElement('div', 'comments-container');
+    commentsContainer.id = `container${element.id}`;
     // eslint-disable-next-line consistent-return
-    buttons.addEventListener('click', () => {
+    comments.addEventListener('click', () => {
       if (commentsContainer.style.display === 'block') {
+        commentsContainer.textContent = '';
         // eslint-disable-next-line no-return-assign
         return commentsContainer.style.display = 'none';
       }
@@ -102,17 +106,20 @@ const createPost = (Data) => {
       const addComment = createElement('div', 'add-comment');
       commentsContainer.appendChild(addComment);
       const CommentTitle = createElement('h4', 'comment-title');
-      CommentTitle.textContent = 'Comment As';
+      CommentTitle.textContent = 'Comment As ';
+      const userSpan = createElement('span', 'user-span');
+      CommentTitle.appendChild(userSpan);
       addComment.appendChild(CommentTitle);
       const createComment = createElement('div', 'create-comment');
       const Comment = createElement('input', 'Comment');
       const commentBtn = createElement('button', 'comment-btn');
       commentBtn.textContent = 'Comment';
+      commentBtn.id = element.id;
       createComment.appendChild(Comment);
       createComment.appendChild(commentBtn);
       addComment.appendChild(createComment);
 
-      // ========================
+      // --------------------------------comments
 
       fetch(`/post/comment/${element.id}`)
         .then((data) => data.json())
@@ -162,9 +169,19 @@ const createPost = (Data) => {
             const commentMore = createElement('button', 'comment-more');
             commentMore.textContent = '...';
             commentButtons.appendChild(commentMore);
-            postInfo.appendChild(commentsContainer);
           });
-        }).catch(console.log);
+          userData()
+            .then((userData) => {
+              userSpan.textContent = userData.user?.username;
+            });
+          postInfo.appendChild(commentsContainer);
+        }).then(() => {
+          commentBtn.addEventListener('click', (btn) => {
+            // eslint-disable-next-line no-undef
+            addCommentValidation(Comment.value, btn.target.id);
+          });
+        })
+        .catch(console.log);
     });
   });
 };

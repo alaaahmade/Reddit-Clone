@@ -1,8 +1,8 @@
 const { getComments, addCommentQ } = require('./query/comments/comment');
 const getPostsQ = require('./query/post/getposts');
 const { PostQuery } = require('./query/post/post');
-const ProfileData = require('./query/user/ProfileData');
-const { signupQuery, loginQuery } = require('./query/user/user');
+const { ProfileData, usernameQ } = require('./query/user/ProfileData');
+const { signupQuery, loginQuery, getUserDataQ } = require('./query/user/user');
 const {
   remove,
   add,
@@ -24,4 +24,6 @@ module.exports = {
   update,
   getComments,
   addCommentQ,
+  usernameQ,
+  getUserDataQ,
 };

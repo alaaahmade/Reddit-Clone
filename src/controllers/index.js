@@ -8,6 +8,7 @@ const getHome = require('./pages/home');
 const getLogin = require('./pages/login');
 const getSignup = require('./pages/signup');
 const addPost = require('./post/post');
+const getUserData = require('./user/getuserData');
 const login = require('./user/login');
 const logout = require('./user/logout');
 const getProfileData = require('./user/profileData');
@@ -37,4 +38,5 @@ module.exports = {
   getSIndexScore,
   getComment,
   addComment,
+  getUserData,
 };
