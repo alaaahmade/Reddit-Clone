@@ -14,6 +14,7 @@ fetch('/user/profile', {
 }).then((data) => data.json())
   .then((data) => {
     // eslint-disable-next-line no-undef
+    console.log(data);
     createPost(data);
     return data[0];
   }).then((data) => {

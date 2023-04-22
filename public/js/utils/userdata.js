@@ -5,6 +5,7 @@ const userData = () => fetch('/user/data')
 
 userData()
   .then((data) => {
+    console.log(data);
     const loginBtn = document.querySelector('.login-btn');
     const getAppBtn = document.querySelector('.get-app');
     const myButtons = document.querySelectorAll('.none');
@@ -32,8 +33,8 @@ userData()
         tow.style.display = 'none';
         loginLogout.textContent = 'Logout';
       }
+      const headerUserName = document.getElementById('username');
+      const userNode = document.createTextNode(data.user.username);
+      headerUserName.appendChild(userNode);
     }
-    const headerUserName = document.getElementById('username');
-    const userNode = document.createTextNode(data.user.username);
-    headerUserName.appendChild(userNode);
   });
