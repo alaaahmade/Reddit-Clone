@@ -28,8 +28,10 @@
         <button class="get-app"><i class="ri-qr-code-line"></i> Get App</button>
         <button class="login-btn">Login</button>
     </div>
+
     <button class="list">
-        <i class="ri-shield-user-fill"></i>
+        <span id="username" class="one"><img src="/image/reddit.png" alt="" class="user-icon"></span>
+        <i class="ri-shield-user-fill tow"></i>
         <i class="ri-arrow-down-s-fill"></i>
     </button>
     <div class="sitting">
@@ -43,7 +45,7 @@
         <button><span><i style="font-size: 22px;" class="ri-error-warning-line"></i> More</span></button>
         <button><span><i style="font-size: 22px;" class="ri-file-list-3-line"></i> Trems & Policies</span></button>
         <button><span><i class="fa fa-gavel" aria-hidden="true"></i> Advertise pn Reddit</span></button>
-        <button class="last"><span><i class="fa fa-sign-in" aria-hidden="true"></i> Login / sign Up</span></button>
+        <button class="last"><span id="login-logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Login / sign Up</span></button>
     </div>
     </div>
     </header>
@@ -286,9 +288,11 @@
         <div class="container" id="container">
         </div>
     </section>
-    
+    <script src="/js/utils/userdata.js"></script>
     <script src="/js/utils/addComment.js"></script>
     <script src="/js/utils/Dom.js"></script>
     <script src="/js/profile/profile.js"></script>
+    <script src="/js/utils/vote.js"></script>
+
 </body>
 </html>
