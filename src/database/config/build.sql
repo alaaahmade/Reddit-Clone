@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, posts, comments, votes;
+DROP TABLE IF EXISTS users, posts, comments, votes, friends CASCADE;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
@@ -21,8 +21,9 @@ CREATE TABLE posts (
     imageUrl TEXT,
     userId INTEGER ,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES users(id)
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 CREATE TABLE votes (
   id SERIAL PRIMARY KEY,
   userId INTEGER NOT NULL,
@@ -43,7 +44,7 @@ CREATE TABLE comments(
   FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE friends (
+CREATE TABLE friends(
   id SERIAL PRIMARY KEY,
   userId INTEGER,
   friendId INTEGER,

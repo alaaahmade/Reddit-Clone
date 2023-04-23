@@ -13,7 +13,6 @@ const removeBtn = document.querySelector('.remove-btn');
 fetch('/user/profile')
   .then((data) => data.json())
   .then((data) => {
-    console.log(data);
     // eslint-disable-next-line no-undef
     createPost(data);
     return data[0];
@@ -21,7 +20,7 @@ fetch('/user/profile')
     addBtn.id = data.id;
     names.textContent = `${data.firstname} ${data.lastname}`;
     userName.textContent = data.username;
-    return data.id;
+    return data.userid;
   })
   .then((id) => {
     fetch(`/friends/check/${id}`)
