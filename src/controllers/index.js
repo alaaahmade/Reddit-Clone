@@ -9,11 +9,14 @@ const getLogin = require('./pages/login');
 const getMyProfile = require('./pages/myProfile');
 const getSignup = require('./pages/signup');
 const addPost = require('./post/post');
+const addFriends = require('./user/addFriends');
+const checkFriend = require('./user/checkFriend');
 const getMyProfileData = require('./user/getMyProfileData');
 const getUserData = require('./user/getuserData');
 const login = require('./user/login');
 const logout = require('./user/logout');
 const getProfileData = require('./user/profileData');
+const removeFriend = require('./user/removeFrien');
 const signup = require('./user/signup');
 const { addVote } = require('./votes/addVote');
 const decreaseVote = require('./votes/decreaseVote');
@@ -43,4 +46,7 @@ module.exports = {
   getUserData,
   getMyProfile,
   getMyProfileData,
+  addFriends,
+  checkFriend,
+  removeFriend,
 };

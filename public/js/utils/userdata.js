@@ -5,7 +5,6 @@ const userData = () => fetch('/user/data')
 
 userData()
   .then((data) => {
-    console.log(data);
     const loginBtn = document.querySelector('.login-btn');
     const getAppBtn = document.querySelector('.get-app');
     const myButtons = document.querySelectorAll('.none');

@@ -5,14 +5,14 @@ const {
   signup,
   logout,
   getUserData,
-  getMyProfile,
   getMyProfileData,
+  getProfileData,
 } = require('../../controllers');
 const { checkAuth, isLogged } = require('../../middleware');
 
 const userRouter = express.Router();
 
-userRouter.get('/profile', getMyProfile);
+userRouter.get('/profile', getProfileData);
 userRouter.get('/myProfile', checkAuth, getMyProfileData);
 userRouter.get('/logout', checkAuth, logout);
 userRouter.get('/data', checkAuth, getUserData);
