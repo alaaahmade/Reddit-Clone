@@ -23,6 +23,8 @@ const decreaseVote = require('./votes/decreaseVote');
 const getSIndexScore = require('./votes/getIndexScore');
 const getScore = require('./votes/getScore');
 const getMyFriends = require('./friends/getMyFrinds');
+const getUserPicture = require('./user/getUserPicture');
+const addUserPicture = require('./user/addUserPicture');
 
 module.exports = {
   addVote,
@@ -51,4 +53,6 @@ module.exports = {
   checkFriend,
   removeFriend,
   getMyFriends,
+  getUserPicture,
+  addUserPicture,
 };

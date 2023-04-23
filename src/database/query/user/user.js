@@ -32,4 +32,25 @@ const getUserDataQ = (id) => {
   return connection.query(sql);
 };
 
-module.exports = { signupQuery, loginQuery, getUserDataQ };
+const getUserPictureQ = (id) => {
+  const sql = {
+    text: 'SELECT photo FROM users WHERE ID=$1',
+    values: [id],
+  };
+  return connection.query(sql);
+};
+
+const addUserPictureQ = ({ userId, url }) => {
+  const sql = {
+    text: 'UPDATE users SET photo=$2 WHERE ID=$1 RETURNING photo',
+    values: [userId, url],
+  };
+  return connection.query(sql);
+};
+module.exports = {
+  signupQuery,
+  loginQuery,
+  getUserDataQ,
+  getUserPictureQ,
+  addUserPictureQ,
+};
