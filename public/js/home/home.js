@@ -57,3 +57,8 @@ window.onscroll = () => {
     rightSideBar.style.top = '400px';
   }
 };
+const myProfileBtn = document.getElementById('myprofile');
+
+myProfileBtn.addEventListener('click', () => {
+  window.location.href = '/page/myProfile';
+});

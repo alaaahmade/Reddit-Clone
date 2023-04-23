@@ -26,7 +26,7 @@ const loginQuery = (object) => {
 
 const getUserDataQ = (id) => {
   const sql = {
-    text: 'SELECT username FROM users WHERE id=$1',
+    text: 'SELECT username, id FROM users WHERE id=$1',
     values: [id],
   };
   return connection.query(sql);

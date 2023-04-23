@@ -32,8 +32,8 @@ userData()
         tow.style.display = 'none';
         loginLogout.textContent = 'Logout';
       }
+      const headerUserName = document.getElementById('username');
+      const userNode = document.createTextNode(data.user.username);
+      headerUserName.appendChild(userNode);
     }
-    const headerUserName = document.getElementById('username');
-    const userNode = document.createTextNode(data.user.username);
-    headerUserName.appendChild(userNode);
   });

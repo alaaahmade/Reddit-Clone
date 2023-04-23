@@ -7,7 +7,8 @@ const loginBtn = document.querySelector('.login-btn');
 const joinBtn = document.getElementById('joinBtn');
 const names = document.querySelector('.profile-name');
 const userName = document.querySelector('.profile-userName');
-const joinUser = document.querySelector('.join-btn');
+const addBtn = document.querySelector('.join-btn');
+const removeBtn = document.querySelector('.remove-btn');
 
 fetch('/user/profile', {
   method: 'GET',
@@ -17,9 +18,43 @@ fetch('/user/profile', {
     createPost(data);
     return data[0];
   }).then((data) => {
-    joinUser.id = data.username;
+    addBtn.id = data.id;
     names.textContent = `${data.firstname} ${data.lastname}`;
     userName.textContent = data.username;
+    return data.id;
+  })
+  .then((id) => {
+    fetch(`/friends/check/${id}`)
+      .then((data) => data.json())
+      .then((data) => {
+        if (data.friend) {
+          removeBtn.style.display = 'block';
+          addBtn.style.display = 'none';
+        } else {
+          removeBtn.style.display = 'none';
+          addBtn.style.display = 'block';
+        }
+
+        addBtn.addEventListener('click', () => {
+          removeBtn.style.display = 'block';
+          addBtn.style.display = 'none';
+          fetch(`/friends/add/${id}`)
+            .then((res) => res.json())
+            .then(() => {
+            }).catch(console.log);
+        });
+
+        removeBtn.addEventListener('click', () => {
+          removeBtn.style.display = 'none';
+          addBtn.style.display = 'block';
+          fetch(`/friends/remove/${id}`)
+            .then((res) => res.json())
+            .then(() => {
+            })
+            .catch(console.log);
+        });
+        // }
+      });
   })
   .catch(console.log);
 
