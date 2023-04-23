@@ -776,3 +776,21 @@ section.posts{
 #friendImg{
   width: 30px;
 }
+
+#profile-img{
+  cursor: pointer;
+}
+
+#profile-img-input{
+  height: 35px;
+  width: 400px;
+  margin-left: 30px;
+  padding: 15px;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+}
+
+.block .Profile-image-div{
+  display: none;
+}

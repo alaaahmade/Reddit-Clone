@@ -4,7 +4,43 @@ const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const sittingBtn = document.querySelector('.list');
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const friendsList = document.querySelector('.friends');
+const profileImg = document.getElementById('profile-img');
+const profileImageDiv = document.querySelector('.Profile-image-div');
+const addImageBtn = document.getElementById('Profile-image-button');
+const profileImgInput = document.getElementById('profile-img-input');
+fetch('/user/getImg')
+  .then((data) => data.json())
+  .then((data) => {
+    profileImg.src = data.img;
+  }).catch(console.log);
 
+profileImg.addEventListener('click', () => {
+  if (profileImageDiv.style.display === 'flex') {
+    profileImageDiv.style.display = 'none';
+  } else {
+    profileImageDiv.style.display = 'flex';
+  }
+});
+
+addImageBtn.addEventListener('click', () => {
+  if (profileImgInput.value.trim().length >= 50) {
+    profileImageDiv.style.display = 'none';
+    fetch('/user/image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: profileImgInput.value }),
+    }).then((data) => data.json())
+      // eslint-disable-next-line consistent-return
+      .then((data) => {
+        if (data.error) {
+          return 'Invalid url';
+        }
+        profileImg.src = data.url;
+      }).catch(console.log);
+  } else {
+    console.log('Invalid url');
+  }
+});
 friendsList.addEventListener('click', () => {
   fetch('/friends/myFriends')
     .then((data) => data.json())

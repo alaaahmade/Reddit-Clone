@@ -1,9 +1,21 @@
 const { getComments, addCommentQ } = require('./query/comments/comment');
-const { addFriendsQ, getFriend, removeFriendQ, getMyFriendsQ } = require('./query/friends/friends');
+const {
+  addFriendsQ,
+  getFriend,
+  removeFriendQ,
+  getMyFriendsQ,
+} = require('./query/friends/friends');
 const getPostsQ = require('./query/post/getposts');
 const { PostQuery } = require('./query/post/post');
 const { ProfileData, usernameQ } = require('./query/user/ProfileData');
-const { signupQuery, loginQuery, getUserDataQ } = require('./query/user/user');
+const {
+  signupQuery,
+  loginQuery,
+  getUserDataQ,
+  getUserPictureQ,
+  addUserPictureQ,
+} = require('./query/user/user');
+
 const {
   remove,
   add,
@@ -31,4 +43,6 @@ module.exports = {
   getFriend,
   removeFriendQ,
   getMyFriendsQ,
+  getUserPictureQ,
+  addUserPictureQ,
 };
