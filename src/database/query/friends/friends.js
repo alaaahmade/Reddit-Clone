@@ -26,7 +26,7 @@ const removeFriendQ = ({ userId, friendId }) => {
 
 const getMyFriendsQ = (userId) => {
   const sql = {
-    text: 'SELECT * FROM friends WHERE userId=$1;',
+    text: 'SELECT username, friendId FROM friends LEFT JOIN users ON users.id=friends.friendId WHERE userId=$1;',
     values: [userId],
   };
   return connection.query(sql);

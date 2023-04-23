@@ -1,7 +1,12 @@
 const friendRouter = require('express').Router();
-
-const { addFriends, checkFriend, removeFriend, getMyFriends } = require('../../controllers');
 const { checkAuth } = require('../../middleware');
+
+const {
+  addFriends,
+  checkFriend,
+  removeFriend,
+  getMyFriends,
+} = require('../../controllers');
 
 friendRouter.use(checkAuth);
 friendRouter.get('/add/:friendId', addFriends);

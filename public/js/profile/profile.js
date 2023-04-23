@@ -10,10 +10,10 @@ const userName = document.querySelector('.profile-userName');
 const addBtn = document.querySelector('.join-btn');
 const removeBtn = document.querySelector('.remove-btn');
 
-fetch('/user/profile', {
-  method: 'GET',
-}).then((data) => data.json())
+fetch('/user/profile')
+  .then((data) => data.json())
   .then((data) => {
+    console.log(data);
     // eslint-disable-next-line no-undef
     createPost(data);
     return data[0];
@@ -58,9 +58,11 @@ fetch('/user/profile', {
   })
   .catch(console.log);
 
-joinBtn.addEventListener('click', () => {
-  window.location.href = '/page/signup';
-});
+if (joinBtn) {
+  joinBtn.addEventListener('click', () => {
+    window.location.href = '/page/signup';
+  });
+}
 
 sittingBtn.addEventListener('click', () => {
   if (setting.style.display === 'none') {

@@ -351,13 +351,20 @@ section .right-side-bar{
 }
 #right-drop-list{
   display: none;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 10px;
   width: 300px;
   flex-wrap: wrap;
   padding-top: 10px;
   transition: 0.5ms;
   
 }
+#right-drop-list a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .right-lists button:hover{
   background-color: #F6F7F8;
 }
@@ -759,4 +766,13 @@ section.posts{
   color: var(--primary-clr);
   background-color: var(--second-clr);
   border: 1px solid var(--primary-clr);
+}
+
+.right-friends{
+  display: flex;
+  flex-direction: column;
+}
+
+#friendImg{
+  width: 30px;
 }
