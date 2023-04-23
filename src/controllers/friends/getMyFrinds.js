@@ -2,7 +2,6 @@ const { getMyFriendsQ } = require('../../database');
 
 const getMyFriends = (req, res, next) => {
   const { userId } = req;
-  console.log(userId);
   getMyFriendsQ(userId)
     .then((data) => {
       res.status(200).json({

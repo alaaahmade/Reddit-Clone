@@ -5,6 +5,29 @@ const sittingBtn = document.querySelector('.list');
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const friendsList = document.querySelector('.friends');
 
+friendsList.addEventListener('click', () => {
+  fetch('/friends/myFriends')
+    .then((data) => data.json())
+    .then((data) => data.message)
+    .then((data) => {
+      const list = document.querySelector('.right-friends');
+      list.textContent = '';
+      data.forEach((user) => {
+        const userBtn = document.createElement('a');
+        const userImg = document.createElement('img');
+        userImg.src = '/image/reddit.png';
+        userImg.id = 'friendImg';
+        const userNode = document.createTextNode(user.username);
+        userBtn.id = user.friendid;
+        userBtn.href = `/page/profile/${user.friendid}`;
+        userBtn.appendChild(userImg);
+        userBtn.appendChild(userNode);
+        list.appendChild(userBtn);
+      });
+    })
+    .catch(console.log);
+});
+
 sittingBtn.addEventListener('click', () => {
   if (setting.style.display === 'none') {
     setting.style.display = 'block';
@@ -40,7 +63,6 @@ rightSideBarBtn.forEach((btn) => {
 fetch('/user/myProfile')
   .then((data) => data.json())
   .then((data) => {
-    console.log(data);
     const profileName = document.querySelector('.profile-name');
     const profileUserName = document.querySelector('.profile-userName');
     profileUserName.textContent = data[0].username;
@@ -48,10 +70,3 @@ fetch('/user/myProfile')
     createPost(data);
   })
   .catch(console.log);
-
-friendsList.addEventListener('click', () => {
-  fetch('/user/friends')
-    .then((data) => data.json())
-    .then(console.log)
-    .catch(console.log);
-});
