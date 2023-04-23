@@ -162,7 +162,7 @@ section .side-bar{
   top: 65px;
   background-color: var(--white-clr);
   width: 250px;
-  height: calc(100vh - 245px);
+  height: 100vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;

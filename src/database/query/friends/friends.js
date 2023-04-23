@@ -23,4 +23,18 @@ const removeFriendQ = ({ userId, friendId }) => {
   };
   return connection.query(sql);
 };
-module.exports = { addFriendsQ, getFriend, removeFriendQ };
+
+const getMyFriendsQ = (userId) => {
+  const sql = {
+    text: 'SELECT * FROM friends WHERE userId=$1;',
+    values: [userId],
+  };
+  return connection.query(sql);
+};
+
+module.exports = {
+  addFriendsQ,
+  getFriend,
+  removeFriendQ,
+  getMyFriendsQ,
+};
