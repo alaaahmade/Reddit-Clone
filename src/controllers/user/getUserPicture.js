@@ -4,7 +4,7 @@ const getUserPicture = (req, res, next) => {
   const { userId } = req;
   getUserPictureQ(userId)
     .then((data) => {
-      if (!data.rowCount) {
+      if (!data.rows[0].photo) {
         return res.status(200).json({
           error: false,
           img: 'http://localhost:8080/image/reddit.png',

@@ -12,6 +12,41 @@ setTimeout(() => {
       window.location.href = `/page/profile/${user.id}`;
     });
   });
+  const postMore = document.querySelectorAll('.fa-ellipsis');
+  postMore.forEach((more) => {
+    more.addEventListener('click', () => {
+      fetch('/user/data')
+        .then((data) => data.json())
+        .then((data) => data.user.id)
+        .then((data) => {
+          const userId = more.getAttribute('userid');
+          if (data === +userId) {
+            const edit = document.querySelectorAll('.editBtn');
+            const myEdit = Array.from(edit).filter((e) => e.id === more.id)[0];
+            myEdit.style.display = 'block';
+            // eslint-disable-next-line no-param-reassign
+            more.style.display = 'none';
+            myEdit.addEventListener('click', () => {
+              const postTitle = document.querySelectorAll('.content p.title');
+              const postContent = document.querySelectorAll('.content .post-disc');
+              const postImg = document.querySelectorAll('.post-img');
+              const myPostTitle = Array.from(postTitle).filter((e) => e.id === more.id)[0];
+              const myPostContent = Array.from(postContent).filter((e) => e.id === more.id)[0];
+              const myPostiImg = Array.from(postImg).filter((e) => e.id === more.id)[0];
+              const postData = {
+                id: more.id,
+                title: myPostTitle.textContent,
+                content: myPostContent.textContent,
+                img: myPostiImg.src,
+              };
+              localStorage.setItem('postData', JSON.stringify(postData));
+              window.location.href = '/page/createpost';
+            });
+          }
+        })
+        .catch(console.log);
+    });
+  });
 }, 200);
 
 postInput.addEventListener('focus', () => {
