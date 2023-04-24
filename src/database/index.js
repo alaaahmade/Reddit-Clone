@@ -1,4 +1,4 @@
-const { getComments, addCommentQ } = require('./query/comments/comment');
+const { getComments, addCommentQ, deleteCommentQ } = require('./query/comments/comment');
 const {
   addFriendsQ,
   getFriend,
@@ -51,4 +51,5 @@ module.exports = {
   addUserPictureQ,
   updatePostQ,
   deletePostQ,
+  deleteCommentQ,
 };

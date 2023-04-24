@@ -12,7 +12,6 @@ const createPost = (Data) => {
     postsContainer.textContent = '';
     Data.forEach((element) => {
       const post = createElement('div', 'post');
-
       const score = createElement('div', 'score');
       post.appendChild(score);
       const scoreUP = createElement('button', 'score-up');
@@ -181,8 +180,21 @@ const createPost = (Data) => {
               commentButtons.appendChild(reply);
               const share = createElement('button', 'share');
               commentButtons.appendChild(share);
-              const commentMore = createElement('button', 'comment-more');
-              commentMore.textContent = '...';
+              const commentMore = createElement('p', 'comment-more');
+              commentMore.id = comment.id;
+              userData()
+                .then((users) => {
+                  if (comment.userid === users.user.id) {
+                    const commentDeleteIco = createElement('i', 'ri-delete-bin-line');
+                    commentDeleteIco.id = comment.id;
+                    commentMore.appendChild(commentDeleteIco);
+                    commentDeleteIco.addEventListener('click', () => {
+                      DeleteComment(comment.id);
+                    });
+                  }
+                });
+
+              // commentMore.textContent = 'Delete';
               commentButtons.appendChild(commentMore);
             });
             userData()
@@ -193,7 +205,8 @@ const createPost = (Data) => {
           }).then(() => {
             commentBtn.addEventListener('click', (btn) => {
             // eslint-disable-next-line no-undef
-              addCommentValidation(Comment.value, btn.target.id);
+              addCommentValidation(Comment.value, btn.target.id, element);
+              Comment.value = '';
             });
           })
           .catch(console.log);

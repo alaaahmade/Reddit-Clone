@@ -795,3 +795,11 @@ section.posts{
 .block .Profile-image-div{
   display: none;
 }
+
+.ri-delete-bin-line{
+  font-size: 22px;
+}
+
+.ri-delete-bin-line:hover{
+  color: var(--primary-clr);
+}

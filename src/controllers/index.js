@@ -27,6 +27,7 @@ const getUserPicture = require('./user/getUserPicture');
 const addUserPicture = require('./user/addUserPicture');
 const updatePost = require('./post/updatePost');
 const deletePost = require('./post/deletePost');
+const deleteComment = require('./comment/deleteComment');
 
 module.exports = {
   addVote,
@@ -59,4 +60,5 @@ module.exports = {
   addUserPicture,
   updatePost,
   deletePost,
+  deleteComment,
 };

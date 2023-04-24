@@ -705,7 +705,7 @@ section.posts{
 }
 .reply:hover,
 .share:hover,
-.comment-more:hover{
+.comment-more button:hover{
     color: var(--primary-clr);
 }
 .share,
@@ -713,6 +713,19 @@ section.posts{
     border: 0;
     outline: 0;
     font-weight: bold;
+    background-color: transparent;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.comment-more{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.comment-more button{
+    outline: 0;
+    border: 0;
+    color: var(--second-clr);
     background-color: transparent;
     transition: 0.2s;
 }
@@ -766,4 +779,12 @@ section.posts{
      font-size: 14px;
      color: #a5a5a5;
      font-weight: 200;
+}
+
+.ri-delete-bin-line{
+    font-size: 22px;
+}
+
+.ri-delete-bin-line:hover{
+    color: var(--primary-clr);
 }
