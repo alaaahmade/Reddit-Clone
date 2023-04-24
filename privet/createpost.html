@@ -43,7 +43,7 @@
                 <button><span class="material-symbols-outlined">campaign</span></i></button>
             </div>
             <button class="list">
-                <span id="username"><img src="/image/reddit.png" alt="" class="user-icon">alaaahmade</span>
+                <span id="username"><img src="/image/reddit.png" alt="" class="user-icon"></span>
                 <i class="ri-arrow-down-s-fill"></i>
             </button>
             <div class="sitting">
@@ -208,11 +208,14 @@
     <section class="add-post">
         <form id="postForm" class="post-form">
             <input type="text" name="title" class="post-title" placeholder="Title">
-            <input type="text" name="imageUrl" class="post-title" placeholder="Image Link">
-            <textarea name="content" id="" cols="30" rows="10" placeholder="Text (Optional)"></textarea>
+            <input type="text" name="imageUrl" class="post-img" placeholder="Image Link">
+            <textarea name="content" class="post-Area" cols="30" rows="10" placeholder="Text (Optional)"></textarea>
             <button class="post">Post</button>
+            <button class="update" style="display: none;">Save</button>
+
         </form type="submit">
     </section>
+    <script src="/js/utils/userdata.js"></script>
     <script src="/js/post/postValidation.js"></script>
     <script src="/js/post/createpost.js"></script>
 </body>

@@ -14,4 +14,22 @@ const PostQuery = (object) => {
   return connection.query(sql);
 };
 
-module.exports = { PostQuery };
+const getPostsQ = () => {
+  const sql = 'SELECT title, content, imageUrl, posts.userId, created_at, posts.id, username FROM POSTS LEFT JOIN users ON users.id =POSTS.userId;';
+  return connection.query(sql);
+};
+
+const updatePostQ = ({
+  postId,
+  title,
+  content,
+  imageUrl,
+}) => {
+  const sql = {
+    text: 'UPDATE posts SET title=$2, content=$3, imageUrl=$4 WHERE id=$1;',
+    values: [postId, title, content, imageUrl],
+  };
+  return connection.query(sql);
+};
+
+module.exports = { PostQuery, getPostsQ, updatePostQ };

@@ -778,6 +778,7 @@ section.posts{
 }
 
 #profile-img{
+  min-width: 70px;
   cursor: pointer;
 }
 
