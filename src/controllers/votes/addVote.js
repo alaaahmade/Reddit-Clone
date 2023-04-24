@@ -21,8 +21,14 @@ const addVote = (req, res, next) => {
       return add({ userId, postId, vote: 'up' });
     }).then(() => count({ postId }))
     .then((data) => {
+      const up = data.rows.filter((e) => e.vote === 'up').length;
+      const down = data.rows.filter((e) => e.vote === 'down').length;
+      const score = up - down;
+      return score;
+    })
+    .then((score) => {
       res.status(200).json({
-        score: data.rows.length,
+        score,
       });
     })
     .catch((err) => next(err));

@@ -23,37 +23,40 @@ fetch('/user/profile')
     return data.userid;
   })
   .then((id) => {
-    fetch(`/friends/check/${id}`)
-      .then((data) => data.json())
-      .then((data) => {
-        if (data.friend) {
-          removeBtn.style.display = 'block';
-          addBtn.style.display = 'none';
-        } else {
-          removeBtn.style.display = 'none';
-          addBtn.style.display = 'block';
-        }
+    if (document.cookie.startsWith('token')) {
+      fetch(`/friends/check/${id}`)
+        .then((data) => data.json())
+        .then((data) => {
+          if (data.friend) {
+            removeBtn.style.display = 'block';
+            addBtn.style.display = 'none';
+          } else {
+            removeBtn.style.display = 'none';
+            addBtn.style.display = 'block';
+          }
 
-        addBtn.addEventListener('click', () => {
-          removeBtn.style.display = 'block';
-          addBtn.style.display = 'none';
-          fetch(`/friends/add/${id}`)
-            .then((res) => res.json())
-            .then(() => {
-            }).catch(console.log);
-        });
+          addBtn.addEventListener('click', () => {
+            removeBtn.style.display = 'block';
+            addBtn.style.display = 'none';
+            fetch(`/friends/add/${id}`)
+              .then((res) => res.json())
+              .then(() => {
+              }).catch(console.log);
+          });
 
-        removeBtn.addEventListener('click', () => {
-          removeBtn.style.display = 'none';
-          addBtn.style.display = 'block';
-          fetch(`/friends/remove/${id}`)
-            .then((res) => res.json())
-            .then(() => {
-            })
-            .catch(console.log);
+          removeBtn.addEventListener('click', () => {
+            removeBtn.style.display = 'none';
+            addBtn.style.display = 'block';
+            fetch(`/friends/remove/${id}`)
+              .then((res) => res.json())
+              .then(() => {
+              })
+              .catch(console.log);
+          });
         });
-        // }
-      });
+    } else {
+      removeBtn.style.display = 'none';
+    }
   })
   .catch(console.log);
 
