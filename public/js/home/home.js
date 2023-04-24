@@ -4,7 +4,6 @@ const setting = document.querySelector('.sitting');
 const sittingBtn = document.querySelector('.list');
 const rightSideBar = document.querySelector('.right-lists');
 const postInput = document.getElementById('postInput');
-
 setTimeout(() => {
   const usernames = document.querySelectorAll('.in-user p');
   usernames.forEach((user) => {
@@ -21,6 +20,10 @@ setTimeout(() => {
         .then((data) => {
           const userId = more.getAttribute('userid');
           if (data === +userId) {
+            const deleteBtn = document.querySelectorAll('.deleteBtn');
+            const myDeleteBtn = Array.from(deleteBtn).filter((e) => e.id === more.id)[0];
+            myDeleteBtn.style.display = 'block';
+            myDeleteBtn.style.marginBottom = '5px';
             const edit = document.querySelectorAll('.editBtn');
             const myEdit = Array.from(edit).filter((e) => e.id === more.id)[0];
             myEdit.style.display = 'block';
@@ -41,6 +44,15 @@ setTimeout(() => {
               };
               localStorage.setItem('postData', JSON.stringify(postData));
               window.location.href = '/page/createpost';
+            });
+            myDeleteBtn.addEventListener('click', () => {
+              fetch(`/post/delete/${myDeleteBtn.id}`)
+                .then((result) => result.json())
+                .then((result) => {
+                  if (!result.error) {
+                    window.location.reload();
+                  }
+                }).catch(console.log);
             });
           }
         })
