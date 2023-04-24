@@ -47,6 +47,7 @@ setTimeout(() => {
     score.textContent = '';
     decreaseVote(btn.id)
       .then((data) => {
+        console.log(data);
         score.textContent = data.score;
         if (data.data === 'add') {
           btn.classList.remove('black');
