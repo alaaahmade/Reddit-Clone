@@ -32,4 +32,17 @@ const updatePostQ = ({
   return connection.query(sql);
 };
 
-module.exports = { PostQuery, getPostsQ, updatePostQ };
+const deletePostQ = ({ postId, userId }) => {
+  const sql = {
+    text: 'DELETE FROM posts WHERE id=$1 AND userid=$2;',
+    values: [postId, userId],
+  };
+  return connection.query(sql);
+};
+
+module.exports = {
+  PostQuery,
+  getPostsQ,
+  updatePostQ,
+  deletePostQ,
+};

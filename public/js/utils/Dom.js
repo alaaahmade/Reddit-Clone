@@ -92,9 +92,14 @@ const createPost = (Data) => {
       moreIcon.id = element.id;
       moreIcon.setAttribute('userId', element.userid);
       const edit = createElement('button', 'editBtn');
+      const deleteBtn = createElement('button', 'deleteBtn');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.id = element.id;
+      deleteBtn.style.display = 'none';
       edit.id = element.id;
       edit.textContent = 'Edit';
       edit.style.display = 'none';
+      more.appendChild(deleteBtn);
       more.appendChild(edit);
       more.appendChild(moreIcon);
       buttons.appendChild(more);

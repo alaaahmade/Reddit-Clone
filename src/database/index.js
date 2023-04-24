@@ -5,7 +5,12 @@ const {
   removeFriendQ,
   getMyFriendsQ,
 } = require('./query/friends/friends');
-const { PostQuery, getPostsQ, updatePostQ } = require('./query/post/post');
+const {
+  PostQuery,
+  getPostsQ,
+  updatePostQ,
+  deletePostQ,
+} = require('./query/post/post');
 const { ProfileData, usernameQ } = require('./query/user/ProfileData');
 const {
   signupQuery,
@@ -45,4 +50,5 @@ module.exports = {
   getPostsQ,
   addUserPictureQ,
   updatePostQ,
+  deletePostQ,
 };
