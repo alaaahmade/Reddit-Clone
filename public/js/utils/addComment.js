@@ -1,7 +1,19 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const postsContainer = document.getElementById('container');
-const addComment = (content, postId) => {
+
+const DeleteComment = (commentId) => {
+  fetch(`/post/deleteComment/${commentId}`)
+    .then((data) => data.json())
+    .then((data) => {
+      if (!data.error) {
+        window.location.reload();
+      }
+    })
+    .catch(console.log);
+};
+
+const addComment = (content, postId, element) => {
   fetch(`/post/comment/${postId}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -59,17 +71,21 @@ const addComment = (content, postId) => {
       commentButtons.appendChild(reply);
       const share = createElement('button', 'share');
       commentButtons.appendChild(share);
-      const commentMore = createElement('button', 'comment-more');
+      const commentMore = createElement('p', 'comment-more');
       commentMore.textContent = '...';
+      commentMore.id = comment.comment.id;
       commentButtons.appendChild(commentMore);
       thePost.appendChild(Container);
+      commentMore.addEventListener('click', () => {
+        DeleteComment(commentMore, element);
+      });
     })
     .catch(console.log);
 };
 
 // eslint-disable-next-line no-unused-vars
-const addCommentValidation = (content, postId) => {
+const addCommentValidation = (content, postId, element) => {
   if (content.length < 1) { return 'Comment must be three characters at least.'; }
   if (content.length > 250) { return 'Comment must be three characters at least.'; }
-  return addComment(content, postId);
+  return addComment(content, postId, element);
 };
