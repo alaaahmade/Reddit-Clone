@@ -122,7 +122,10 @@ button{
   height: 35px;
 }
 .user-icon{
-  width: 25px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
 }
 .feature button span {
   font-size: 20px;

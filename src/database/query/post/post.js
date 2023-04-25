@@ -23,6 +23,7 @@ const getPostsQ = () => {
     posts.imageUrl,
     posts.created_at,
     users.username,
+    users.photo,
     posts.userId,
     COUNT(DISTINCT comments.id) AS comment_count,
     COUNT(
@@ -35,6 +36,7 @@ JOIN users ON posts.userid = users.id
 LEFT JOIN comments ON posts.id = comments.postid
 LEFT JOIN votes ON posts.id = votes.postid
 GROUP BY
+users.photo,
 posts.id,
 users.username
 ORDER BY COUNT(DISTINCT CASE WHEN votes.vote
