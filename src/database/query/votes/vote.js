@@ -27,7 +27,7 @@ const remove = ({ userId, postId }) => {
 
 const checkVote = ({ userId, postId }) => {
   const sql = {
-    text: "SELECT * FROM votes where userId=$1 and postId=$2;",
+    text: 'SELECT * FROM votes where userId=$1 and postId=$2;',
     values: [userId, postId],
   };
 

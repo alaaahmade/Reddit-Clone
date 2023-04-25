@@ -23,7 +23,7 @@ const createPost = (Data) => {
 
       appendChildren(scoreUP, upIcon);
       appendChildren(scoreDown, downIco);
-      appendChildren(score, upIcon, scoreUP, scoreNum, scoreDown);
+      appendChildren(score, scoreUP, scoreNum, scoreDown);
       // -------------------------post-content------------------
       const postInfo = createElement('div', 'post-info');
       postInfo.id = `postInfo${element.id}`;
