@@ -1,7 +1,5 @@
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
-const setting = document.querySelector('.sitting');
-const sittingBtn = document.querySelector('.list');
 const rightSideBar = document.querySelector('.right-lists');
 const postInput = document.getElementById('postInput');
 
@@ -95,14 +93,6 @@ postInput.addEventListener('focus', () => {
   window.location.href = '/page/createpost';
 });
 
-sittingBtn.addEventListener('click', () => {
-  if (setting.style.display === 'none') {
-    setting.style.display = 'block';
-  } else {
-    setting.style.display = 'none';
-  }
-});
-
 sideBarBtn.forEach((btn) => {
   const classN = btn.classList[0];
   const list = document.querySelector(`div.${classN}`);
@@ -134,8 +124,3 @@ window.onscroll = () => {
     rightSideBar.style.top = '400px';
   }
 };
-const myProfileBtn = document.getElementById('myprofile');
-
-myProfileBtn.addEventListener('click', () => {
-  window.location.href = '/page/myProfile';
-});

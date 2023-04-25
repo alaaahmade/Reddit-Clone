@@ -1,8 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
-const setting = document.querySelector('.sitting');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
-const sittingBtn = document.querySelector('.list');
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const friendsList = document.querySelector('.friends');
 const profileImg = document.getElementById('profile-img');
@@ -63,14 +61,6 @@ friendsList.addEventListener('click', () => {
       });
     })
     .catch(() => window.alert('You do not have friends'));
-});
-
-sittingBtn.addEventListener('click', () => {
-  if (setting.style.display === 'none') {
-    setting.style.display = 'block';
-  } else {
-    setting.style.display = 'none';
-  }
 });
 
 sideBarBtn.forEach((btn) => {

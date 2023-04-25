@@ -24,7 +24,14 @@ button{
     height: var(--full);
     width: 120px;
 }
-    
+
+.user-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+
 .left{
     display: flex;
     width: 65%;

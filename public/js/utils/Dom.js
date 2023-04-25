@@ -31,6 +31,7 @@ const createPost = (Data) => {
       const user = createElement('div', 'user');
       const inUser = createElement('div', 'in-user');
       const userIcon = createElement('img', 'user-icon');
+      userIcon.src = element.photo;
       const username = createElement('p', 'username');
       username.id = element.userid;
       username.textContent = element.username;

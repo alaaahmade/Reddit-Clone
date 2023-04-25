@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
-const setting = document.querySelector('.sitting');
-const sittingBtn = document.querySelector('.list');
+// const setting = document.querySelector('.sitting');
+// const sittingBtn = document.querySelector('.list');
 const rightSideBar = document.querySelector('.right-lists');
 const loginBtn = document.querySelector('.login-btn');
 const joinBtn = document.getElementById('joinBtn');
@@ -85,6 +85,7 @@ const createPost = (Data) => {
     const user = createElement('div', 'user');
     const inUser = createElement('div', 'in-user');
     const userIcon = createElement('img', 'user-icon');
+    userIcon.src = element.photo;
     const username = createElement('p', 'username');
     username.id = element.userid;
     username.textContent = element.username;

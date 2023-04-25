@@ -34,8 +34,10 @@ if (document.cookie.startsWith('token')) {
           tow.style.display = 'none';
           loginLogout.textContent = 'Logout';
         }
+        const userIco = document.querySelector('.user-icon');
         const headerUserName = document.getElementById('username');
         const userNode = document.createTextNode(data.user.username);
+        userIco.src = data.user.photo;
         headerUserName.appendChild(userNode);
       }
     });
