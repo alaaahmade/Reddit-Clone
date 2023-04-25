@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const setting = document.querySelector('.sitting');
@@ -41,7 +42,7 @@ fetch('/user/profile')
             fetch(`/friends/add/${id}`)
               .then((res) => res.json())
               .then(() => {
-              }).catch(console.log);
+              }).catch(() => window.alert('UnAuthorized'));
           });
 
           removeBtn.addEventListener('click', () => {
@@ -51,14 +52,14 @@ fetch('/user/profile')
               .then((res) => res.json())
               .then(() => {
               })
-              .catch(console.log);
+              .catch(() => window.alert('UnAuthorized'));
           });
         });
     } else {
       removeBtn.style.display = 'none';
     }
   })
-  .catch(console.log);
+  .catch(() => window.alert('UnAuthorized'));
 
 if (joinBtn) {
   joinBtn.addEventListener('click', () => {

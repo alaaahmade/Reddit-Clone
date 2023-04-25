@@ -27,7 +27,6 @@ const getScore = (req, res, next) => {
       .catch((err) => next(err));
   }
 
-  // .then(() =>
   count({ postId })
     .then((data) => {
       const up = data.rows.filter((e) => e.vote === 'up').length;

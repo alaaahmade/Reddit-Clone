@@ -7,5 +7,6 @@ logoutBtn.addEventListener('click', () => {
     . then(() => {
       window.location.href = '/page/index';
     })
-    .catch(console.log);
+    // eslint-disable-next-line no-alert
+    .catch((error) => window.alert(error.message));
 });

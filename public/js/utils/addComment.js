@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const postsContainer = document.getElementById('container');
@@ -10,7 +11,7 @@ const DeleteComment = (commentId) => {
         window.location.reload();
       }
     })
-    .catch(console.log);
+    .catch(() => window.alert('UnAuthorized'));
 };
 
 const addComment = (content, postId, element) => {
@@ -31,56 +32,60 @@ const addComment = (content, postId, element) => {
       const thePost = document.getElementById(`postInfo${postId}`);
       const Container = document.getElementById(`container${postId}`);
       const commentDiv = createElement('div', 'comment-div');
-      Container.appendChild(commentDiv);
       const userComment = createElement('div', 'user-comment');
-      commentDiv.appendChild(userComment);
       const commentImg = createElement('img', 'comment');
       commentImg.src = '/image/reddit.png';
       const usernameComment = createElement('p', 'username-comment');
       usernameComment.textContent = comment.username;
       const commentDate = createElement('p', 'comment-date');
       commentDate.textContent = comment.comment.date;
-      userComment.appendChild(commentImg);
-      userComment.appendChild(usernameComment);
-      userComment.appendChild(commentDate);
       const commentContent = createElement('div', 'comment-content');
-      commentDiv.appendChild(commentContent);
       const commentText = createElement('p', 'comment-text');
-      commentContent.appendChild(commentText);
       commentText.textContent = comment.comment.content;
       const commentButtons = createElement('div', 'comment-buttons');
-      commentDiv.appendChild(commentButtons);
       const commentVote = createElement('div', 'comment-vote');
-      commentButtons.appendChild(commentVote);
       const commentUp = createElement('button', 'comment-up');
       const commentUpIcon = document.createElement('i');
       commentUpIcon.className = 'fa-solid fa-arrow-up';
-      commentUp.appendChild(commentUpIcon);
-      commentVote.appendChild(commentUp);
       const commentNum = createElement('span', 'comment-num');
       commentNum.textContent = 0;
-      commentVote.appendChild(commentNum);
       const commentDown = createElement('button', 'comment-down');
       const commentDownIcon = document.createElement('i');
       commentDownIcon.className = 'fa-solid fa-arrow-down';
-      commentDown.appendChild(commentDownIcon);
-      commentVote.appendChild(commentDown);
       const reply = createElement('button', 'reply');
       const replyIcon = createElement('i', 'ri-chat-smile-line');
-      reply.appendChild(replyIcon);
-      commentButtons.appendChild(reply);
       const share = createElement('button', 'share');
-      commentButtons.appendChild(share);
       const commentMore = createElement('p', 'comment-more');
-      commentMore.textContent = '...';
       commentMore.id = comment.comment.id;
-      commentButtons.appendChild(commentMore);
-      thePost.appendChild(Container);
+      userData()
+        .then((users) => {
+          if (comment.comment.userid === users.user.id) {
+            const commentDeleteIco = createElement('i', 'ri-delete-bin-line');
+            commentDeleteIco.id = comment.comment.id;
+            appendChildren(commentMore, commentDeleteIco);
+            commentDeleteIco.addEventListener('click', () => {
+              DeleteComment(comment.comment.id);
+            });
+          }
+        });
+
+      appendChildren(Container, commentDiv);
+      appendChildren(userComment, commentImg, usernameComment, commentDate);
+      appendChildren(commentDiv, userComment, commentContent);
+      appendChildren(commentContent, commentText);
+      appendChildren(commentDiv, commentButtons);
+      appendChildren(commentUp, commentUpIcon);
+      appendChildren(commentDown, commentDownIcon);
+      appendChildren(commentVote, commentUp, commentNum, commentDown);
+      appendChildren(reply, replyIcon);
+      appendChildren(commentButtons, commentVote, reply, share, commentMore);
+      appendChildren(thePost, Container);
       commentMore.addEventListener('click', () => {
         DeleteComment(commentMore, element);
       });
     })
-    .catch(console.log);
+    // eslint-disable-next-line no-console
+    .catch(() => window.alert('UnAuthorized'));
 };
 
 // eslint-disable-next-line no-unused-vars

@@ -1,6 +1,6 @@
 const { getPostsQ } = require('../../database');
 
-const getPosts = (req, res) => {
+const getPosts = (req, res, next) => {
   getPostsQ()
     .then((data) => {
       if (data.rowCount > 0) {
@@ -13,7 +13,7 @@ const getPosts = (req, res) => {
         }];
         res.status(200).json(defaultPost);
       }
-    }).catch(console.log);
+    }).catch((error) => next(error));
 };
 
 module.exports = getPosts;

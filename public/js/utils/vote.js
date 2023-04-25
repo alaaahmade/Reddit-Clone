@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 const addVote = (id) => fetch(`/vote/add/${id}`, {
   method: 'GET',
 }).then((data) => data.json());
@@ -47,7 +48,6 @@ setTimeout(() => {
     score.textContent = '';
     decreaseVote(btn.id)
       .then((data) => {
-        console.log(data);
         score.textContent = data.score;
         if (data.data === 'add') {
           btn.classList.remove('black');
@@ -56,6 +56,6 @@ setTimeout(() => {
           btn.classList.remove('gray');
           btn.classList.add('black');
         }
-      }).catch(console.log);
+      }).catch(() => window.alert('Something wrong'));
   }));
 }, 200);

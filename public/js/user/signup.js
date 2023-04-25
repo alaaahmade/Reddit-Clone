@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 const signUpForm = document.getElementById('signupForm');
 
@@ -22,8 +23,8 @@ signUpForm.addEventListener('submit', (e) => {
           window.location.reload();
         }
       })
-      .catch(console.log);
+      .catch((error) => window.alert(error.message));
   } else {
-    console.log(validation(data));
+    window.alert(validation(data));
   }
 });

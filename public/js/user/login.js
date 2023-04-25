@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -22,8 +23,8 @@ loginBtn.addEventListener('click', (e) => {
           window.location.href = '/page/home';
         }
       })
-      .catch(console.log);
+      .catch((error) => window.alert(error.message));
   } else {
-    console.log(loginValidation(userData));
+    window.alert(loginValidation(userData));
   }
 });

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 const postForm = document.getElementById('postForm');
 const postBtn = document.querySelector('.post');
@@ -9,11 +10,9 @@ const updateBtn = document.querySelector('.update');
 if (localStorage.getItem('postData')) {
   postBtn.textContent = 'Save';
   const postObj = JSON.parse(localStorage.getItem('postData'));
-  console.log(postObj);
   titleInput.value = postObj.title;
   imgInput.value = postObj.img;
   contentInput.value = postObj.content;
-  // localStorage.clear();
   postBtn.style.display = 'none';
   updateBtn.style.display = 'block';
   updateBtn.addEventListener('click', (e) => {
@@ -37,8 +36,9 @@ if (localStorage.getItem('postData')) {
           throw new Error('Unauthorized');
         }
       })
-      .catch(console.log);
+      .catch(() => window.alert('UnAuthorized'));
   });
+  localStorage.clear();
 } else {
   postBtn.style.display = 'block';
   updateBtn.style.display = 'none';
@@ -57,9 +57,9 @@ if (localStorage.getItem('postData')) {
             window.location.href = '/page/home';
           }
         })
-        .catch(console.log);
+        .catch(() => window.alert('UnAuthorized'));
     } else {
-      console.log(postValidation(objData));
+      window.alert(postValidation(objData));
     }
   });
 }
