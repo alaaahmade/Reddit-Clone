@@ -9,7 +9,7 @@ const signupQuery = ({
   phone,
 }) => {
   const sql = {
-    text: 'INSERT INTO users (email, password, username, firstName, lastName, phone) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, username, firstName, lastName',
+    text: 'INSERT INTO users (email, password, username, firstName, lastName, phone) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, username, firstName, lastName, email',
     values: [email, password, username, firstName, lastName, phone],
   };
   return connection.query(sql);

@@ -20,7 +20,7 @@ const addCommentQ = ({ userId, postId, content }) => {
 
 const deleteCommentQ = ({ commentId, userId }) => {
   const sql = {
-    text: 'DELETE FROM comments WHERE id=$1 AND userid=$2;',
+    text: "DELETE FROM comments WHERE id=$1 AND userid=$2 RETURNING 'successfully';",
     values: [commentId, userId],
   };
   return connection.query(sql);
