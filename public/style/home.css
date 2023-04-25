@@ -524,7 +524,7 @@ section.posts{
     left: 47%;
     transform: translateX(-50%);
     top: 270px;
-    width: 670px;
+    max-width: 670px;
 }
 .container{
     display:flex;
@@ -624,7 +624,9 @@ section.posts{
     word-wrap: break-word;
 }
 .post-info .content img{
-    width: 70%;
+    max-width: 80%;
+    min-width: 80%;
+    margin-left: 30px;
 }
 
 .buttons{
