@@ -59,7 +59,6 @@ loginBtn.addEventListener('click', () => {
 const createPost = (Data) => {
   const postsContainer = document.getElementById('container');
   postsContainer.textContent = '';
-  Data.reverse();
   Data.forEach((element) => {
     // -------------------score------------------
     const post = createElement('div', 'post');

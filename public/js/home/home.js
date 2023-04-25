@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const setting = document.querySelector('.sitting');
@@ -20,6 +19,14 @@ setTimeout(() => {
         .then((data) => data.json())
         .then((data) => data.user.id)
         .then((data) => {
+          if (data.error) {
+            const validateP = document.getElementById('validateP');
+            validateP.style.display = 'flex';
+            validateP.textContent = data.data.message;
+            setTimeout(() => {
+              validateP.style.display = 'none';
+            }, 4000);
+          }
           const userId = more.getAttribute('userid');
           if (data === +userId) {
             const deleteBtn = document.querySelectorAll('.deleteBtn');
@@ -53,12 +60,33 @@ setTimeout(() => {
                 .then((result) => {
                   if (!result.error) {
                     window.location.reload();
+                  } else if (result.error) {
+                    const validateP = document.getElementById('validateP');
+                    validateP.style.display = 'flex';
+                    validateP.textContent = result.data.message;
+                    setTimeout(() => {
+                      validateP.style.display = 'none';
+                    }, 4000);
                   }
-                }).catch(() => window.alert('something is wrong'));
+                }).catch((error) => {
+                  const validateP = document.getElementById('validateP');
+                  validateP.style.display = 'flex';
+                  validateP.textContent = error.data.message;
+                  setTimeout(() => {
+                    validateP.style.display = 'none';
+                  }, 4000);
+                });
             });
           }
         })
-        .catch(() => window.alert('This user dos not exist.'));
+        .catch((error) => {
+          const validateP = document.getElementById('validateP');
+          validateP.style.display = 'flex';
+          validateP.textContent = error.data.message;
+          setTimeout(() => {
+            validateP.style.display = 'none';
+          }, 4000);
+        });
     });
   });
 }, 200);

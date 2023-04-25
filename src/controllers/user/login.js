@@ -31,6 +31,7 @@ const login = (req, res, next) => {
       res.cookie('token', data).status(200).json({ login: true });
     })
     .catch((error) => {
+      // console.log(error);
       next(new CustomError(401, error.message));
     });
 };

@@ -66,6 +66,23 @@ button{
     gap: 20px;
     
 }
+.validate p{
+    width: 400px;
+    /* height: fit-content; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: rgba(255, 57, 57, 0.185);
+    color: red;
+    border: 1.5px dashed red;
+    font-weight: bold;
+    border-radius: 4px;
+    position: absolute;
+     left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+  }
 .logo{
     display: flex;
     justify-content: center;

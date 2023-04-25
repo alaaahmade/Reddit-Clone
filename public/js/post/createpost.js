@@ -32,11 +32,23 @@ if (localStorage.getItem('postData')) {
         if (!data.error) {
           window.location.href = '/page/home';
           localStorage.clear();
-        } else {
-          throw new Error('Unauthorized');
+        } else if (data.error) {
+          const validateP = document.getElementById('validateP');
+          validateP.style.display = 'flex';
+          validateP.textContent = data.data.message;
+          setTimeout(() => {
+            validateP.style.display = 'none';
+          }, 4000);
         }
       })
-      .catch(() => window.alert('UnAuthorized'));
+      .catch((error) => {
+        const validateP = document.getElementById('validateP');
+        validateP.style.display = 'flex';
+        validateP.textContent = error.data.message;
+        setTimeout(() => {
+          validateP.style.display = 'none';
+        }, 4000);
+      });
   });
   localStorage.clear();
 } else {
@@ -55,11 +67,30 @@ if (localStorage.getItem('postData')) {
         .then((res) => {
           if (!res.error) {
             window.location.href = '/page/home';
+          } else if (result.error) {
+            const validateP = document.getElementById('validateP');
+            validateP.style.display = 'flex';
+            validateP.textContent = res.data.message;
+            setTimeout(() => {
+              validateP.style.display = 'none';
+            }, 4000);
           }
         })
-        .catch(() => window.alert('UnAuthorized'));
+        .catch((error) => {
+          const validateP = document.getElementById('validateP');
+          validateP.style.display = 'flex';
+          validateP.textContent = error.data.message;
+          setTimeout(() => {
+            validateP.style.display = 'none';
+          }, 4000);
+        });
     } else {
-      window.alert(postValidation(objData));
+      const validateP = document.getElementById('validateP');
+      validateP.style.display = 'flex';
+      validateP.textContent = postValidation(objData);
+      setTimeout(() => {
+        validateP.style.display = 'none';
+      }, 4000);
     }
   });
 }

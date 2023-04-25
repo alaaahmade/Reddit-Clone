@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const setting = document.querySelector('.sitting');
@@ -18,19 +17,38 @@ fetch('/user/profile')
     // eslint-disable-next-line no-undef
     createPost(data);
     return data[0];
+  // eslint-disable-next-line consistent-return
   }).then((data) => {
-    addBtn.id = data.id;
-    console.log(data);
-    userImg.src = data.photo;
-    names.textContent = `${data.firstname} ${data.lastname}`;
-    userName.textContent = data.username;
-    return data.userid;
+    if (data.error) {
+      const validateP = document.getElementById('validateP');
+      validateP.style.display = 'flex';
+      validateP.textContent = data.data.message;
+      setTimeout(() => {
+        validateP.style.display = 'none';
+      }, 4000);
+      throw new Error('Something is wrong');
+    } else {
+      addBtn.id = data.id;
+      userImg.src = data.photo;
+      names.textContent = `${data.firstname} ${data.lastname}`;
+      userName.textContent = data.username;
+      return data.userid;
+    }
   })
   .then((id) => {
     if (document.cookie.startsWith('token')) {
       fetch(`/friends/check/${id}`)
         .then((data) => data.json())
         .then((data) => {
+          if (data.error) {
+            const validateP = document.getElementById('validateP');
+            validateP.style.display = 'flex';
+            validateP.textContent = data.data.message;
+            setTimeout(() => {
+              validateP.style.display = 'none';
+            }, 4000);
+            throw new Error('Something is wrong');
+          }
           if (data.friend) {
             removeBtn.style.display = 'block';
             addBtn.style.display = 'none';
@@ -44,8 +62,23 @@ fetch('/user/profile')
             addBtn.style.display = 'none';
             fetch(`/friends/add/${id}`)
               .then((res) => res.json())
-              .then(() => {
-              }).catch(() => window.alert('UnAuthorized'));
+              .then((res) => {
+                if (res.error) {
+                  const validateP = document.getElementById('validateP');
+                  validateP.style.display = 'flex';
+                  validateP.textContent = res.data.message;
+                  setTimeout(() => {
+                    validateP.style.display = 'none';
+                  }, 4000);
+                }
+              }).catch((error) => {
+                const validateP = document.getElementById('validateP');
+                validateP.style.display = 'flex';
+                validateP.textContent = error.data.message;
+                setTimeout(() => {
+                  validateP.style.display = 'none';
+                }, 4000);
+              });
           });
 
           removeBtn.addEventListener('click', () => {
@@ -53,16 +86,38 @@ fetch('/user/profile')
             addBtn.style.display = 'block';
             fetch(`/friends/remove/${id}`)
               .then((res) => res.json())
-              .then(() => {
+              .then((res) => {
+                if (res.error) {
+                  const validateP = document.getElementById('validateP');
+                  validateP.style.display = 'flex';
+                  validateP.textContent = res.data.message;
+                  setTimeout(() => {
+                    validateP.style.display = 'none';
+                  }, 4000);
+                }
               })
-              .catch(() => window.alert('UnAuthorized'));
+              .catch((error) => {
+                const validateP = document.getElementById('validateP');
+                validateP.style.display = 'flex';
+                validateP.textContent = error.data.message;
+                setTimeout(() => {
+                  validateP.style.display = 'none';
+                }, 4000);
+              });
           });
         });
     } else {
       removeBtn.style.display = 'none';
     }
   })
-  .catch(() => window.alert('UnAuthorized'));
+  .catch((error) => {
+    const validateP = document.getElementById('validateP');
+    validateP.style.display = 'flex';
+    validateP.textContent = error.data.message;
+    setTimeout(() => {
+      validateP.style.display = 'none';
+    }, 4000);
+  });
 
 if (joinBtn) {
   joinBtn.addEventListener('click', () => {

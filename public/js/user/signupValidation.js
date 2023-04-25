@@ -9,10 +9,12 @@ const validation = (data) => {
     email,
     phone,
   } = data;
-  if (!firstName.match(/^[a-zA-Z]{3,50}$/) && !lastName.match(/^[a-zA-Z]{3,50}$/)) {
+  if (!firstName.match(/^[a-zA-Z]{3,50}$/) || !lastName.match(/^[a-zA-Z]{3,50}$/)) {
     return 'invalid first or last name';
   } if (!username.match(/^[a-zA-Z0-9]{3,50}$/)) {
     return 'invalid username';
+  } if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+    return 'invalid Email';
   } if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
     return 'invalid password';
   } if (confirmPassword !== password) {
