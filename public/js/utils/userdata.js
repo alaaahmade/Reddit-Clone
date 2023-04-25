@@ -1,7 +1,8 @@
+/* eslint-disable no-alert */
 // eslint-disable-next-line no-unused-vars
 const userData = () => fetch('/user/data')
   .then((data) => data.json())
-  .catch(console.log);
+  .catch(() => window.alert('This user dos not exist'));
 
 if (document.cookie.startsWith('token')) {
   userData()

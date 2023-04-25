@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 const setting = document.querySelector('.sitting');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
@@ -12,7 +13,7 @@ fetch('/user/getImg')
   .then((data) => data.json())
   .then((data) => {
     profileImg.src = data.img;
-  }).catch(console.log);
+  }).catch(() => window.alert('You do not have picture'));
 
 profileImg.addEventListener('click', () => {
   if (profileImageDiv.style.display === 'flex') {
@@ -36,9 +37,9 @@ addImageBtn.addEventListener('click', () => {
           return 'Invalid url';
         }
         profileImg.src = data.url;
-      }).catch(console.log);
+      }).catch(() => window.alert('UnAuthorized'));
   } else {
-    console.log('Invalid url');
+    window.alert('Invalid url');
   }
 });
 friendsList.addEventListener('click', () => {
@@ -61,7 +62,7 @@ friendsList.addEventListener('click', () => {
         list.appendChild(userBtn);
       });
     })
-    .catch(console.log);
+    .catch(() => window.alert('You do not have friends'));
 });
 
 sittingBtn.addEventListener('click', () => {
@@ -105,4 +106,4 @@ fetch('/user/myProfile')
     profileName.textContent = data[0].username;
     createPost(data);
   })
-  .catch(console.log);
+  .catch(() => window.alert('UnAuthorized'));

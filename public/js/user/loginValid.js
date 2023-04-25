@@ -6,7 +6,7 @@ const loginValidation = (obj) => {
     if (password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
       return true;
     }
-    return 'invalid Password';
+    return 'Password length must be at least 8 characters and it must consist of letters and numbers';
   }
   return 'invalid Email';
 };

@@ -1,9 +1,11 @@
+/* eslint-disable no-alert */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const setting = document.querySelector('.sitting');
 const sittingBtn = document.querySelector('.list');
 const rightSideBar = document.querySelector('.right-lists');
 const postInput = document.getElementById('postInput');
+
 setTimeout(() => {
   const usernames = document.querySelectorAll('.in-user p');
   usernames.forEach((user) => {
@@ -35,12 +37,12 @@ setTimeout(() => {
               const postImg = document.querySelectorAll('.post-img');
               const myPostTitle = Array.from(postTitle).filter((e) => e.id === more.id)[0];
               const myPostContent = Array.from(postContent).filter((e) => e.id === more.id)[0];
-              const myPostiImg = Array.from(postImg).filter((e) => e.id === more.id)[0];
+              const myPosteImg = Array.from(postImg).filter((e) => e.id === more.id)[0];
               const postData = {
                 id: more.id,
                 title: myPostTitle.textContent,
                 content: myPostContent.textContent,
-                img: myPostiImg.src,
+                img: myPosteImg.src,
               };
               localStorage.setItem('postData', JSON.stringify(postData));
               window.location.href = '/page/createpost';
@@ -52,11 +54,11 @@ setTimeout(() => {
                   if (!result.error) {
                     window.location.reload();
                   }
-                }).catch(console.log);
+                }).catch(() => window.alert('something is wrong'));
             });
           }
         })
-        .catch(console.log);
+        .catch(() => window.alert('This user dos not exist.'));
     });
   });
 }, 200);
