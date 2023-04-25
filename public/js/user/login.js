@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -21,10 +20,29 @@ loginBtn.addEventListener('click', (e) => {
       .then((data) => {
         if (data.login) {
           window.location.href = '/page/home';
+        } else if (data.error) {
+          const validateP = document.getElementById('validateP');
+          validateP.style.display = 'flex';
+          validateP.textContent = data.data.message;
+          setTimeout(() => {
+            validateP.style.display = 'none';
+          }, 4000);
         }
       })
-      .catch((error) => window.alert(error.message));
+      .catch((error) => {
+        const validateP = document.getElementById('validateP');
+        validateP.style.display = 'flex';
+        validateP.textContent = error.data.message;
+        setTimeout(() => {
+          validateP.style.display = 'none';
+        }, 4000);
+      });
   } else {
-    window.alert(loginValidation(userData));
+    const validateP = document.getElementById('validateP');
+    validateP.style.display = 'flex';
+    validateP.textContent = loginValidation(userData);
+    setTimeout(() => {
+      validateP.style.display = 'none';
+    }, 4000);
   }
 });

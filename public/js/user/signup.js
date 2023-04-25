@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 const signUpForm = document.getElementById('signupForm');
 
@@ -23,8 +22,20 @@ signUpForm.addEventListener('submit', (e) => {
           window.location.reload();
         }
       })
-      .catch((error) => window.alert(error.message));
+      .catch((error) => {
+        const validateP = document.getElementById('validateP');
+        validateP.style.display = 'flex';
+        validateP.textContent = error.message;
+        setTimeout(() => {
+          validateP.style.display = 'none';
+        }, 4000);
+      });
   } else {
-    window.alert(validation(data));
+    const validateP = document.getElementById('validateP');
+    validateP.style.display = 'flex';
+    validateP.textContent = validation(data);
+    setTimeout(() => {
+      validateP.style.display = 'none';
+    }, 4000);
   }
 });

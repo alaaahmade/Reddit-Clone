@@ -10,15 +10,18 @@
 </head>
 
 <body>
-  <section class="signup">
-    <div class="logo">
-      <img class="logo-signup" src="https://www.redditinc.com/assets/images/site/reddit-logo.png">
-      <h2>SignUp To Reddit.</h2>
-      <p>By continuing,
-        you are setting up a Reddit account and
-        agree to our User Agreement and Privacy Policy.</p>
+  <div class="logo">
+    <img class="logo-signup" src="https://www.redditinc.com/assets/images/site/reddit-logo.png">
+    <h2>SignUp To Reddit.</h2>
+    <p>By continuing,
+      you are setting up a Reddit account and
+      agree to our User Agreement and Privacy Policy.</p>
     </div>
     <form id="signupForm" class="signup-card animated fade">
+      <section class="signup">
+        <div id="validateD" class="validate">
+          <p id="validateP"> error </p>
+        </div>
       <h1 class="title">SignUp</h1>
       <div id="name">
         <input id="firstName" name="firstName" type="text" placeholder="first Name">
