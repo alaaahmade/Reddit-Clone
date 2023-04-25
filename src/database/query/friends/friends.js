@@ -18,7 +18,7 @@ const getFriend = ({ userId, friendId }) => {
 
 const removeFriendQ = ({ userId, friendId }) => {
   const sql = {
-    text: 'DELETE FROM friends WHERE userId=$1 AND friendId=$2  ',
+    text: "DELETE FROM friends WHERE userId=$1 AND friendId=$2 RETURNING 'successfully';",
     values: [userId, friendId],
   };
   return connection.query(sql);
@@ -26,7 +26,7 @@ const removeFriendQ = ({ userId, friendId }) => {
 
 const getMyFriendsQ = (userId) => {
   const sql = {
-    text: 'SELECT username, friendId FROM friends LEFT JOIN users ON users.id=friends.friendId WHERE userId=$1;',
+    text: 'SELECT username, photo, friendId FROM friends LEFT JOIN users ON users.id=friends.friendId WHERE userId=$1;',
     values: [userId],
   };
   return connection.query(sql);

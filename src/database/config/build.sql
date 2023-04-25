@@ -10,7 +10,7 @@ CREATE TABLE users(
     email VARCHAR(100) NOT NULL UNIQUE,
     password text NOT NULL,
     phone INTEGER NOT NULL,
-    photo text
+    photo text DEFAULT '../../image/image_add_regular_icon_204373.png'
 
 );
 

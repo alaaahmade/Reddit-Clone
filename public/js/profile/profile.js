@@ -10,6 +10,7 @@ const names = document.querySelector('.profile-name');
 const userName = document.querySelector('.profile-userName');
 const addBtn = document.querySelector('.join-btn');
 const removeBtn = document.querySelector('.remove-btn');
+const userImg = document.querySelector('.block img');
 
 fetch('/user/profile')
   .then((data) => data.json())
@@ -19,6 +20,8 @@ fetch('/user/profile')
     return data[0];
   }).then((data) => {
     addBtn.id = data.id;
+    console.log(data);
+    userImg.src = data.photo;
     names.textContent = `${data.firstname} ${data.lastname}`;
     userName.textContent = data.username;
     return data.userid;

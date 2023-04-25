@@ -26,7 +26,7 @@ const updatePostQ = ({
   imageUrl,
 }) => {
   const sql = {
-    text: 'UPDATE posts SET title=$2, content=$3, imageUrl=$4 WHERE id=$1;',
+    text: 'UPDATE posts SET title=$2, content=$3, imageUrl=$4 WHERE id=$1 RETURNING imageUrl',
     values: [postId, title, content, imageUrl],
   };
   return connection.query(sql);
@@ -34,7 +34,7 @@ const updatePostQ = ({
 
 const deletePostQ = ({ postId, userId }) => {
   const sql = {
-    text: 'DELETE FROM posts WHERE id=$1 AND userid=$2;',
+    text: "DELETE FROM posts WHERE id=$1 AND userid=$2 RETURNING 'successfully';",
     values: [postId, userId],
   };
   return connection.query(sql);

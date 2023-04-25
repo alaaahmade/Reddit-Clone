@@ -1,3 +1,5 @@
+const { connection } = require('./config');
+const Build = require('./config/build');
 const { getComments, addCommentQ, deleteCommentQ } = require('./query/comments/comment');
 const {
   addFriendsQ,
@@ -52,4 +54,6 @@ module.exports = {
   updatePostQ,
   deletePostQ,
   deleteCommentQ,
+  Build,
+  connection,
 };
