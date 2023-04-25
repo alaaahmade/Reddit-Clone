@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
@@ -11,7 +12,7 @@ const DeleteComment = (commentId) => {
         window.location.reload();
       }
     })
-    .catch(() => window.alert('UnAuthorized'));
+    .catch(() => console.warn('UnAuthorized'));
 };
 
 const addComment = (content, postId, element) => {
@@ -85,7 +86,7 @@ const addComment = (content, postId, element) => {
       });
     })
     // eslint-disable-next-line no-console
-    .catch(() => window.alert('UnAuthorized'));
+    .catch(() => console.log('UnAuthorized'));
 };
 
 // eslint-disable-next-line no-unused-vars

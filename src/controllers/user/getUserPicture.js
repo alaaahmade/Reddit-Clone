@@ -7,7 +7,7 @@ const getUserPicture = (req, res, next) => {
       if (!data.rows[0].photo) {
         return res.status(200).json({
           error: false,
-          img: 'http://localhost:8080/image/reddit.png',
+          img: '../../image/image_add_regular_icon_204373.png',
         });
       }
       return res.status(200).json({
