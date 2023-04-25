@@ -15,7 +15,33 @@ const PostQuery = (object) => {
 };
 
 const getPostsQ = () => {
-  const sql = 'SELECT title, content, imageUrl, posts.userId, created_at, posts.id, username FROM POSTS LEFT JOIN users ON users.id =POSTS.userId;';
+  const sql = {
+    text: `SELECT
+    posts.id,
+    posts.title,
+    posts.content,
+    posts.imageUrl,
+    posts.created_at,
+    users.username,
+    posts.userId,
+    COUNT(DISTINCT comments.id) AS comment_count,
+    COUNT(
+      DISTINCT CASE
+      WHEN votes.vote = 'down' THEN votes.id
+  END
+) AS downVotes
+FROM posts
+JOIN users ON posts.userid = users.id
+LEFT JOIN comments ON posts.id = comments.postid
+LEFT JOIN votes ON posts.id = votes.postid
+GROUP BY
+posts.id,
+users.username
+ORDER BY COUNT(DISTINCT CASE WHEN votes.vote
+= 'down' THEN votes.id END) - COUNT(DISTINCT CASE WHEN votes.vote = 'up' THEN votes.id END) DESC;`,
+
+  };
+
   return connection.query(sql);
 };
 
