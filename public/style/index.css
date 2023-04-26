@@ -530,7 +530,6 @@ section.posts{
 }
 
 .post .score{
-    position: absolute;
     height: var(--full);
     width: 50px;
     background-color: #F8F9FA;
@@ -696,7 +695,6 @@ section.posts{
     border: 1px solid var(--primary-clr);
 }
 .comments-container{
-    /* display: none; */
     max-width: 500px;
     padding: 15px;
     transition: 0.2s;
@@ -706,7 +704,6 @@ section.posts{
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-left: 60px;
 }
 .user-comment{
     display: flex;
