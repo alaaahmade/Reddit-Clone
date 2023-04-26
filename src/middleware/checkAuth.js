@@ -3,7 +3,7 @@ const { promiseVerify, CustomError } = require('../helpers');
 const checkAuth = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
-    res.redirect('/page/login');
+    // res.redirect('/page/login');
     throw new CustomError(400, 'UnAuthorize');
   }
 
