@@ -167,7 +167,10 @@ button.in-signup{
 }
   @media (max-width: 600px) {
     .signup-wrapper {
-      padding: 1.5rem;
+      display: none;
+    }
+    .logo{
+      display: none;
     }
     .signup-card {
       padding: 1rem;

@@ -93,12 +93,7 @@ button{
   width: 35px;
 }
 .logo a{
-  text-decoration: none;
-  color: var(--black-clr);
-  font-size:23px;
-  font-weight: bold;
-  letter-spacing: -2px;
-
+  display: none;
 }
 .search{
   display: flex;
@@ -824,4 +819,119 @@ section.posts{
 
 .ri-delete-bin-line:hover{
   color: var(--primary-clr);
+}
+
+@media (max-width: 575.98px) { 
+  .feature{
+      display: none;
+  }
+  .logo a{
+      font-size: 20px;
+  }
+  section .side-bar{
+      display: none;
+  }
+  .lists{
+      display: none;
+  }
+  .right-list{
+      display: none;
+  }
+  .add-post{
+    margin-left: 10px;
+    max-width: 100%;
+    top: 80px;
+    min-width: 80%;
+    padding: 0 60px 0 70px;
+    font-size: 10px;
+    gap: 30px;
+    justify-content: center;
+  }
+  .add-post .post-input{
+    width: 50%;
+  }
+  .filter{
+      top: 150px;
+      min-width: 90%;
+      max-width: 100%;
+      padding: 0 60px 0 70px;
+      font-size: 10px;
+      gap: 0;
+      justify-content: center;
+      margin-left: 10px;
+  }
+  .home-ico{
+    display: none;
+  }
+  section.posts{
+      top: 230px;
+  }
+
+  .post{
+      left: 50%;
+      transform: translateX(-68%);
+      width: 70%;
+  }
+  .join{
+      display: none;
+  }
+  .post-info .content{
+    width: 100%;
+    padding: 15px;   
+    padding-left: 41px;
+  }
+  .post-info .content .post-disc{
+    padding: 15px;   
+    width: 60%;
+
+  }
+  .post-info .content img{
+    width: 60%;
+  }
+  .post-info .user-info{
+    max-width: 100%;
+    justify-content: center;
+  }
+  .user{
+    justify-content: center;
+    padding: 5px 20px;
+  }
+  .user div{
+    gap: 3px;
+    margin-right: 100px;
+  }
+  .user div div{
+    margin-left: 0;
+  }
+  .comments-container{
+    width: 60%;
+  }
+  .header{
+    max-width: 100%;
+    width:100%;
+    justify-content: flex-start;
+  }
+  .left{
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    left: -20px;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .search{
+    width: 50%;
+    left: 0;
+  }
+  .right .list{
+    width: fit-content;
+    margin-left: -90px;
+  }
+  .right{
+    width: fit-content;
+  }
+  .sitting{
+    right: 200px;
+}
+
 }
