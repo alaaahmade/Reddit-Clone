@@ -11,11 +11,16 @@ signUpForm.addEventListener('submit', (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     }).then((res) => res.json())
-      .then(() => fetch('/user/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: data.email, password: data.password }),
-      }))
+      .then((res) => {
+        if (!res.error) {
+          return fetch('/user/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: data.email, password: data.password }),
+          });
+        }
+        throw new Error(res.data.message);
+      })
       .then((res) => res.json())
       .then((dat) => {
         if (dat.login === true) {

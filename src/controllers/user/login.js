@@ -30,10 +30,7 @@ const login = (req, res, next) => {
     .then((data) => {
       res.cookie('token', data).status(200).json({ login: true });
     })
-    .catch((error) => {
-      // console.log(error);
-      next(new CustomError(401, error.message));
-    });
+    .catch((error) => next(error));
 };
 
 module.exports = login;

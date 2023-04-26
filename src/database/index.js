@@ -20,6 +20,7 @@ const {
   getUserDataQ,
   getUserPictureQ,
   addUserPictureQ,
+  checkExists,
 } = require('./query/user/user');
 
 const {
@@ -56,4 +57,5 @@ module.exports = {
   deleteCommentQ,
   Build,
   connection,
+  checkExists,
 };
