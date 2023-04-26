@@ -1,13 +1,14 @@
 const { connection } = require('../../config');
 
-const signupQuery = ({
-  email,
-  password,
-  username,
-  firstName,
-  lastName,
-  phone,
-}) => {
+const signupQuery = (object) => {
+  const {
+    email,
+    password,
+    username,
+    firstName,
+    lastName,
+    phone,
+  } = object;
   const sql = {
     text: 'INSERT INTO users (email, password, username, firstName, lastName, phone) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, username, firstName, lastName, email',
     values: [email, password, username, firstName, lastName, phone],
@@ -47,10 +48,20 @@ const addUserPictureQ = ({ userId, url }) => {
   };
   return connection.query(sql);
 };
+
+const checkExists = ({ email, username }) => {
+  const sql = {
+    text: 'select * from users where email=$1 or username=$2',
+    values: [email, username],
+  };
+  return connection.query(sql);
+};
+
 module.exports = {
   signupQuery,
   loginQuery,
   getUserDataQ,
   getUserPictureQ,
   addUserPictureQ,
+  checkExists,
 };

@@ -1,35 +1,26 @@
 const bcrypt = require('bcrypt');
-
-const { signupQuery } = require('../../database');
 const { CustomError } = require('../../helpers');
+
+const { signupQuery, checkExists } = require('../../database');
 const { signupSchema } = require('../../validation');
 
 const signup = (req, res, next) => {
-  const {
-    email,
-    password,
-    confirmPassword,
-    username,
-    firstName,
-    lastName,
-    phone,
-  } = req.body;
-  signupSchema.validateAsync({
-    email,
-    password,
-    confirmPassword,
-    username,
-    firstName,
-    lastName,
-    phone,
-  }, { abortEarly: false })
+  const { password, email, username } = req.body;
+  signupSchema.validateAsync(req.body, { abortEarly: false })
+    .then(checkExists)
     .then((data) => {
-      req.data = data;
-      return bcrypt.hash(password, 10);
+      if (data.rowCount) {
+        if (data.rows[0].email === email) {
+          throw new CustomError(400, 'This email already exists');
+        } else if (data.rows[0].username === username) {
+          throw new CustomError(400, 'This username already exists');
+        }
+      }
     })
+    .then(() => bcrypt.hash(password, 10))
     .then((data) => {
-      req.data.password = data;
-      return signupQuery(req.data);
+      req.body.password = data;
+      return signupQuery(req.body);
     })
     .then(() => {
       res.status(200).json({
@@ -37,9 +28,7 @@ const signup = (req, res, next) => {
         message: 'signup successfully',
       });
     })
-    .catch((error) => {
-      next(new CustomError(401, error.message));
-    });
+    .catch((error) => next(error));
 };
 
 module.exports = signup;
