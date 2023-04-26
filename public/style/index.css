@@ -10,7 +10,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Chivo Mono', monospace;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 body{
     background-color: #DAE0E6;
@@ -85,7 +85,7 @@ button{
 }
 .search label{
     padding: 6.8px 10px;
-    background-color: var(--white-clr);
+    background-color: #DAE0E6;
     border: 1px solid var(--second-clr);
     border-right: 0;
     border-top-left-radius: 50px;
@@ -99,6 +99,7 @@ button{
     border-left: 0;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+    background-color: #DAE0E6;
 }
 .right{
     margin: 0 5px;
@@ -348,16 +349,16 @@ section .right-side-bar{
 .right-lists{
     border: 1px solid var(--second-clr);
     position: absolute;
-    top: 400px;
+    top: 350px;
     right: 20px;
     background-color: var(--white-clr);
-    width: 300px;
+    width: 330px;
     display: flex;
     flex-direction: column;
 }
 #right-drop-list{
     display: none;
-    flex-direction: row;
+    flex-direction: column;
     width: 300px;
     flex-wrap: wrap;
     padding-top: 10px;
@@ -406,7 +407,7 @@ section .right-side-bar{
 
 /* ----------------storys----------------------- */
 .storys{
-    height: 178px;
+    height: 170px;
     display: flex;
     flex-flow: row wrap;
     gap: 20px;
@@ -416,7 +417,7 @@ section .right-side-bar{
     border-radius: 7px;
     z-index: -1;
     position: relative;
-    height: 190px;
+    height: 100%;
     width: 220px;
     top: 110px;
     left: 290px;
@@ -455,7 +456,7 @@ section .right-side-bar{
     left: 47%;
     transform: translateX(-50%);
     background-color: var(--white-clr);
-    width: 670px;
+    width: 600px;
     height: 60px;
     border: 1px solid var(--second-clr);
     display: flex;
@@ -508,7 +509,7 @@ section.posts{
     left: 47%;
     transform: translateX(-50%);
     top: 440px;
-    width: 670px;
+    width: 600px;
 }
 .container{
     display:flex;
@@ -520,7 +521,7 @@ section.posts{
 }
 .post{
     position: relative;
-    width: 670px;
+    width: 600px;
     height: var(--full);
     background-color: var(--white-clr);
     display: flex;
@@ -594,21 +595,21 @@ section.posts{
     outline: 1px solid var(--second-clr);
 }
 .post-info .content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 5px ;
     width: var(--full);
 
 }
-.post-info .content p{
+.post-info .content p.title{
+    font-weight: bold;
+  }
+  .post-info .content p{
     display: flex;
     flex-wrap: wrap;
-    padding: 0 15px 5px 50px;
+    padding: 0 35px 15px 60px;
     word-wrap: break-word;
-}
+  }
 .post-info .content img{
-    width: 70%;
+    width: 90%;
 }
 
 .buttons{
@@ -622,7 +623,6 @@ section.posts{
 
 .validate p{
     width: 400px;
-    /* height: fit-content; */
     display: none;
     align-items: center;
     justify-content: center;

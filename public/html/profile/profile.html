@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/style/profile.css">
     <title>Home</title>
 </head>
+
 <body>
     <header class="header">
         <div id="validateD" class="validate">
             <p id="validateP"> error </p>
-          </div>
-    <div class="left">
+        </div>
+        <div class="left">
             <div class="logo">
                 <img src="/image/reddit.png" alt="" class="icon">
                 <a href="/page/index" class="tile-logo">reddit</a>
@@ -25,45 +31,48 @@
                 <label><i class="ri-search-line"></i></i></label>
                 <input type="text" placeholder="Search Reddit">
             </div>
-    </div>
-    <div class="right">    
-        <div class="feature">
-        <button class="get-app"><i class="ri-qr-code-line"></i> Get App</button>
-        <button class="login-btn">Login</button>
-    </div>
+        </div>
+        <div class="right">
+            <div class="feature">
+                <button class="get-app"><i class="ri-qr-code-line"></i> Get App</button>
+                <button class="login-btn">Login</button>
+            </div>
 
-    <button class="list">
-        <span id="username" class="one"><img src="/image/reddit.png" alt="" class="user-icon"></span>
-        <i class="ri-shield-user-fill tow"></i>
-        <i class="ri-arrow-down-s-fill"></i>
-    </button>
-    <div class="sitting">
-        <button><span><i style="font-size: 22px;" class="ri-moon-line"></i> Dark Mode</span> 
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-            </label>
-        </button>
-        <button id="myprofile">
-            <i class="ri-shield-user-fill"></i> 
-            Profile</button>
-        <button><span><i style="font-size: 22px;" class="ri-question-line"></i> Help Center</span></button>
-        <button><span><i style="font-size: 22px;" class="ri-error-warning-line"></i> More</span></button>
-        <button><span><i style="font-size: 22px;" class="ri-file-list-3-line"></i> Trems & Policies</span></button>
-        <button><span><i class="fa fa-gavel" aria-hidden="true"></i> Advertise pn Reddit</span></button>
-        <button class="last"><span id="login-logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Login / sign Up</span></button>
-    </div>
-    </div>
+            <button class="list">
+                <span id="username" class="one"><img src="/image/reddit.png" alt="" class="user-icon"></span>
+                <i class="ri-shield-user-fill tow"></i>
+                <i class="ri-arrow-down-s-fill"></i>
+            </button>
+            <div class="sitting">
+                <button><span><i style="font-size: 22px;" class="ri-moon-line"></i> Dark Mode</span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </button>
+                <button id="myprofile">
+                    <i class="ri-shield-user-fill"></i>
+                    Profile</button>
+                <button><span><i style="font-size: 22px;" class="ri-question-line"></i> Help Center</span></button>
+                <button><span><i style="font-size: 22px;" class="ri-error-warning-line"></i> More</span></button>
+                <button><span><i style="font-size: 22px;" class="ri-file-list-3-line"></i> Trems &
+                        Policies</span></button>
+                <button><span><i class="fa fa-gavel" aria-hidden="true"></i> Advertise pn Reddit</span></button>
+                <button id="logout" class="last"><span id="login-logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Login /
+                        sign Up</span></button>
+            </div>
+        </div>
     </header>
     <section class="side-bar">
-        <div class="lists" >
+        <div class="lists">
             <div class="feeds">
                 <p class="title">FEEDS</p>
-                <a class="topics" href="/index.html"><i class="ri-home-4-fill"></i> Home</a>
+                <a class="topics" href="/page/home"><i class="ri-home-4-fill"></i> Home</a>
                 <a class="topics" href="#"><i class="ri-arrow-right-line"></i>Populer</a>
             </div>
             <p class="title">TOPICS</p>
-            <button id="sid-bar-btn" class="Gaming titles" href="#"><span><i class="ri-gamepad-fill"></i></i> Gaming</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="sid-bar-btn" class="Gaming titles" href="#"><span><i class="ri-gamepad-fill"></i></i>
+                    Gaming</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="drop-list" class="Gaming">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -77,7 +86,7 @@
                 <a href="#">testing</a>
             </div>
             <button id="sid-bar-btn" class="sports titles" href="#"><span><i class="ri-football-fill"></i>
-                 Sports</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+                    Sports</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="drop-list" class="sports">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -90,7 +99,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="sid-bar-btn" class="business titles" href="#"><span><i class="ri-bar-chart-fill"></i> Business</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="sid-bar-btn" class="business titles" href="#"><span><i class="ri-bar-chart-fill"></i>
+                    Business</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="drop-list" class="business">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -103,7 +113,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="sid-bar-btn" class="crypto titles" href="#"><span><i class="ri-drag-move-line"></i> Crypto</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="sid-bar-btn" class="crypto titles" href="#"><span><i class="ri-drag-move-line"></i>
+                    Crypto</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="drop-list" class="crypto">
                 <a href="#">*testing</a>
                 <a href="#">*testing</a>
@@ -116,7 +127,8 @@
                 <a href="#">*testing</a>
                 <a href="#">*testing</a>
             </div>
-            <button id="sid-bar-btn" class="television titles" href="#"><span><i class="ri-tv-line"></i> Television</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="sid-bar-btn" class="television titles" href="#"><span><i class="ri-tv-line"></i>
+                    Television</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="drop-list" class="television">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -129,7 +141,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="sid-bar-btn" class="celebrity titles" href="#"><span><i class="ri-star-smile-line"></i> Celebrity</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="sid-bar-btn" class="celebrity titles" href="#"><span><i class="ri-star-smile-line"></i>
+                    Celebrity</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="drop-list" class="celebrity">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -142,13 +155,15 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button class="more-topics titles" href="#"><span><i class="ri-more-fill"></i> More-Topics</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button class="more-topics titles" href="#"><span><i class="ri-more-fill"></i> More-Topics</span> <span><i
+                        class="ri-arrow-down-s-fill"></i></span></button>
         </div>
     </section>
 
     <section class="right-list">
         <div class="right-lists">
-            <button id="right-sid-bar-btn" class="POPULAR titles" href="#"><span><i class="ri-gamepad-fill"></i></i> POPULAR COMMUNITIES</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="right-sid-bar-btn" class="POPULAR titles" href="#"><span><i class="ri-gamepad-fill"></i></i>
+                    POPULAR COMMUNITIES</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-POPULAR">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -161,7 +176,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="right-sid-bar-btn" class="Gaming titles" href="#"><span><i class="ri-gamepad-fill"></i></i> Gaming</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="right-sid-bar-btn" class="Gaming titles" href="#"><span><i class="ri-gamepad-fill"></i></i>
+                    Gaming</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-Gaming">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -175,7 +191,7 @@
                 <a href="#">testing</a>
             </div>
             <button id="right-sid-bar-btn" class="sports titles" href="#"><span><i class="ri-football-fill"></i>
-                 Sports</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+                    Sports</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-sports">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -188,7 +204,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="right-sid-bar-btn" class="business titles" href="#"><span><i class="ri-bar-chart-fill"></i> Business</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="right-sid-bar-btn" class="business titles" href="#"><span><i class="ri-bar-chart-fill"></i>
+                    Business</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-business">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -201,7 +218,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="right-sid-bar-btn" class="crypto titles" href="#"><span><i class="ri-drag-move-line"></i> Crypto</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="right-sid-bar-btn" class="crypto titles" href="#"><span><i class="ri-drag-move-line"></i>
+                    Crypto</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-crypto">
                 <a href="#">*testing</a>
                 <a href="#">*testing</a>
@@ -214,7 +232,8 @@
                 <a href="#">*testing</a>
                 <a href="#">*testing</a>
             </div>
-            <button id="right-sid-bar-btn" class="television titles" href="#"><span><i class="ri-tv-line"></i> Television</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="right-sid-bar-btn" class="television titles" href="#"><span><i class="ri-tv-line"></i>
+                    Television</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-television">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -227,7 +246,8 @@
                 <a href="#">testing</a>
                 <a href="#">testing</a>
             </div>
-            <button id="right-sid-bar-btn" class="celebrity titles" href="#"><span><i class="ri-star-smile-line"></i> Celebrity</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
+            <button id="right-sid-bar-btn" class="celebrity titles" href="#"><span><i class="ri-star-smile-line"></i>
+                    Celebrity</span> <span><i class="ri-arrow-down-s-fill"></i></span></button>
             <div id="right-drop-list" class="right-celebrity">
                 <a href="#">testing</a>
                 <a href="#">testing</a>
@@ -243,15 +263,15 @@
         </div>
     </section>
     <section class="profile">
-      <div>
-        <div class="block">
-          <img src="../../image/image_add_regular_icon_204373.png" alt="" class="profile-img">
-          <p class="profile-name">alaa ahmade</p>
+        <div>
+            <div class="block">
+                <img src="../../image/image_add_regular_icon_204373.png" alt="" class="profile-img">
+                <p class="profile-name">alaa ahmade</p>
+            </div>
+            <button class="join-btn">add friends</button>
+            <button id="remove-btn" class="remove-btn">remove friends</button>
         </div>
-        <button class="join-btn">add friends</button>
-        <button class="remove-btn">remove friends</button>
-      </div>
-      <p class="profile-userName">alaaahmade66</p>
+        <p class="profile-userName">alaaahmade66</p>
     </section>
 
     <div class="filter">
@@ -267,17 +287,17 @@
                 </select>
             </span>
             <span class="gray"><i class="ri-star-line"></i> New</span>
-            <span  class="gray"><i class="fa-solid fa-ranking-star"></i> Top</span>
+            <span class="gray"><i class="fa-solid fa-ranking-star"></i> Top</span>
             <a href="#"><i class="fa-solid fa-arrow-trend-up"></i> Rising</a>
         </div>
         <div class="display">
             <select id="display">
                 <option value="">
-                <i class="ri-bank-card-line"></i>
-                Card 
+                    <i class="ri-bank-card-line"></i>
+                    Card
                 </option>
                 <option value="">
-                    Classic 
+                    Classic
                     <i class="fa-solid fa-table-list"></i>
                 </option>
                 <option value="">
@@ -299,4 +319,5 @@
     <script src="/js/utils/vote.js"></script>
 
 </body>
+
 </html>

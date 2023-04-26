@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const rightSideBar = document.querySelector('.right-lists');

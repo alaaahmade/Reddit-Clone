@@ -1,8 +1,16 @@
+/* eslint-disable no-undef */
 const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const sideBarBtn = document.querySelectorAll('#sid-bar-btn');
 const rightSideBar = document.querySelector('.right-lists');
 const postInput = document.getElementById('postInput');
 
+// sittingBtn.addEventListener('click', () => {
+//   if (setting.style.display === 'none') {
+//     setting.style.display = 'block';
+//   } else {
+//     setting.style.display = 'none';
+//   }
+// });
 setTimeout(() => {
   const usernames = document.querySelectorAll('.in-user p');
   usernames.forEach((user) => {
@@ -121,6 +129,6 @@ window.onscroll = () => {
     rightSideBar.style.top = '64px';
   } else {
     rightSideBar.style.position = 'absolute';
-    rightSideBar.style.top = '400px';
+    rightSideBar.style.top = '350px';
   }
 };
