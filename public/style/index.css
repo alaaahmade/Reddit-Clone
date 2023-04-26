@@ -530,6 +530,7 @@ section.posts{
 }
 
 .post .score{
+    position: absolute;
     height: var(--full);
     width: 50px;
     background-color: #F8F9FA;
