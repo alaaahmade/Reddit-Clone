@@ -777,3 +777,119 @@ section.posts{
     background-color: transparent;
     transition: 0.2s;
 }
+
+
+@media (max-width: 575.98px) { 
+    .header{
+    max-width: 100%;
+    }
+    .feature{
+        display: none;
+    }
+    .logo a{
+        font-size: 20px;
+    }
+    section .side-bar{
+        display: none;
+    }
+    .lists{
+        display: none;
+    }
+    .Trending{
+        display: flex;
+        width: 150px;
+        left: 20px;
+    }
+    .Popular{
+        display: flex;
+        width: 150px;
+        left: 20px;
+    }
+    .right-list{
+        display: none;
+    }
+    .story{
+        left: 50%;
+        transform: translateX(-47%);
+        width: 70%;
+    }
+    .user{
+        width: 100%;
+    }
+    .story:nth-child(1),.story:nth-child(2),.story:nth-child(3){
+        display: none;
+    }
+    .filter{
+        top: 330px;
+        min-width: 90%;
+        max-width: 100%;
+        margin-left: 15px;
+        padding: 0 60px 0 70px;
+        font-size: 10px;
+        gap: 0;
+        justify-content: center;
+    }
+
+    section.posts{
+        top: 410px;
+        left: 44%;
+    }
+
+    .post{
+        left: 50%;
+        transform: translateX(-65%);
+        max-width: 70%;
+    }
+    .join{
+        display: none;
+    }
+    .post-info{
+      max-width: 100%;
+    }
+    .post-info .content{
+     padding: 15px;   
+     padding-left: 41px;
+    }
+    .post-info .content .post-disc{
+     padding: 15px;   
+     width: 60%;
+
+    }
+    .post-info .content img{
+        width: 60%;
+    }
+    .post-info .user-info{
+      max-width: 100%;
+      justify-content: center;
+    }
+    .post-info .user-info .user{
+        justify-content: center;
+        padding: 5px 20px;
+    }
+    .user div{
+        gap: 3px;
+    }
+    .user div div{
+        margin-left: 0;
+    }
+    .comments-container{
+        width: 60%;
+    }
+    .header{
+        justify-content: center;
+    }
+    .left{
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .search{
+        width: 65%;
+        left: 0;
+    }
+    .sitting{
+        right: 100px;
+    }
+    .Popular{
+        top: 295px;
+    }
+}

@@ -496,3 +496,49 @@ textarea{
     border: 1px solid var(--primary-clr);
 
 }
+
+@media (max-width: 575.98px) { 
+    .feature{
+      display: none;
+    }
+    .logo a{
+      font-size: 20px;
+    }
+    section .side-bar{
+      display: none;
+    }
+    .lists{
+      display: none;
+    }
+    .right-list{
+      display: none;
+    }
+    .add-post{
+      left: 0;
+      max-width: 100%;
+      }
+    .post-form{
+      max-width: 100%;
+      left: 0;
+    }
+    .create-title{
+      left: 20px;
+      max-width: 100%;
+    }
+    .home-ico{
+      display: none;
+    }
+
+    .left{
+      justify-content: flex-start;
+      gap: 3px;
+      max-width:fit-content ;
+    }
+    .left .search{
+      display: none;
+    }
+    .sitting{
+        right: 200px;
+    }
+
+}
