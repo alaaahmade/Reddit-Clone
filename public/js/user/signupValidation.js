@@ -13,6 +13,7 @@ const validation = (data) => {
     return 'invalid first or last name';
   } if (!username.match(/^[a-zA-Z0-9]{3,50}$/)) {
     return 'invalid username';
+  // eslint-disable-next-line no-useless-escape
   } if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
     return 'invalid Email';
   } if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
