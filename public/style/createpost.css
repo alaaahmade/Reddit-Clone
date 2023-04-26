@@ -10,8 +10,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Chivo Mono', monospace;
-}
+    font-family: 'IBM Plex Sans', sans-serif;}
 body{
     background-color: #DAE0E6;
 }
@@ -159,7 +158,9 @@ button{
     background-color: #ccc;
 }
 .user-icon{
-    width: 25px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 .feature button span {
     font-size: 20px;
@@ -384,7 +385,7 @@ section .right-side-bar{
 }
 #right-drop-list{
     display: none;
-    flex-direction: row;
+    flex-direction: column;
     width: 300px;
     flex-wrap: wrap;
     padding-top: 10px;

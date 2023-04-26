@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
+const rightSideBarBtn = document.querySelectorAll('#right-sid-bar-btn');
 const postForm = document.getElementById('postForm');
 const postBtn = document.querySelector('.post');
 const titleInput = document.querySelector('.post-title');
@@ -94,3 +95,15 @@ if (localStorage.getItem('postData')) {
     }
   });
 }
+
+rightSideBarBtn.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const classN = btn.classList[0];
+    const list = document.querySelector(`div.right-${classN}`);
+    if (list.style.display === 'none') {
+      list.style.display = 'flex';
+    } else {
+      list.style.display = 'none';
+    }
+  });
+});

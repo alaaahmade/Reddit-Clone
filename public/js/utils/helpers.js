@@ -28,3 +28,16 @@ sittingBtn.addEventListener('click', () => {
     setting.style.display = 'none';
   }
 });
+
+const logoutBtn = document.getElementById('logout');
+
+logoutBtn.addEventListener('click', () => {
+  fetch('/user/logout', {
+    method: 'GET',
+  })
+    . then(() => {
+      window.location.href = '/page/index';
+    })
+    // eslint-disable-next-line no-alert
+    .catch((error) => window.alert(error.message));
+});
